@@ -253,10 +253,12 @@ func (v LabsResource) Create(c buffalo.Context) error {
 		}).Respond(c)
 	}
 
-	err = sendGoogleNotification(c, lab)
-	if err != nil {
-		c.Flash().Add("danger", "Unable to send notification to Google Chat")
-	}
+	/*
+		err = sendGoogleNotification(c, lab)
+		if err != nil {
+			c.Flash().Add("danger", "Unable to send notification to Google Chat")
+		}
+	*/
 
 	err = sendSlackNotification(lab)
 	if err != nil {
