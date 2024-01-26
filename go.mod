@@ -1,6 +1,6 @@
 module openshift-partner-labs-app
 
-go 1.21.5
+go 1.21
 
 require (
 	github.com/coreos/go-semver v0.3.1
@@ -14,6 +14,7 @@ require (
 	github.com/gobuffalo/validate/v3 v3.3.3
 	github.com/gobuffalo/x v0.1.0
 	github.com/gofrs/uuid v4.3.1+incompatible
+	github.com/gorilla/sessions v1.2.1
 	github.com/itchyny/gojq v0.12.14
 	github.com/markbates/goth v1.78.0
 	github.com/slack-go/slack v0.12.3
@@ -50,7 +51,6 @@ require (
 	github.com/gorilla/handlers v1.5.1 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/gorilla/securecookie v1.1.1 // indirect
-	github.com/gorilla/sessions v1.2.1 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/itchyny/timefmt-go v0.1.5 // indirect
