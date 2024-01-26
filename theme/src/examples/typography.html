@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Typography"})
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Components", "title": "Typography"})
+    
+            <!-- start grid -->
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5">
+                    <!-- start col -->
+                    <div class="col-span-12 xl:col-span-6">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body flex flex-wrap gap-2">
+                                <div class="shrink-0">
+                                    <h1 class="text-6xl font-light text-gray-600 dark:text-gray-100">A</h1>
+                                </div>
+                                <div class="ltr:ml-4 rtl:mr-4">
+                                    <p class="text-muted mb-2 text-gray-500 dark:text-zinc-100">Font Family</p>
+                                    <h5 class="text-gray-600 dark:text-gray-100">" IBM Plex Sans", sans-serif</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Headings</h6>
+                            </div>
+                            <div class="card-body space-y-3">
+                                <h1 class="font-semibold text-gray-700 dark:text-gray-100 text-4xl">Tailwind heading <span class="text-3xl text-gray-400 dark:text-zinc-100/60">2.25rem (36px)</span></h1>
+                                <h2 class="font-semibold text-gray-700 dark:text-gray-100 text-3xl">Tailwind heading <span class="text-xl text-gray-400 dark:text-zinc-100/60">1.875rem (30px)</span></h2>
+                                <h3 class="font-semibold text-gray-700 dark:text-gray-100 text-2xl">Tailwind heading <span class="text-xl text-gray-400 dark:text-zinc-100/60">1.5rem (24px)</span></h3>
+                                <h4 class="font-semibold text-gray-700 dark:text-gray-100 text-xl">Tailwind heading <span class="text-gray-400 dark:text-zinc-100/60">1.25rem (20px)</span></h4>
+                                <h5 class="font-semibold text-gray-700 dark:text-gray-100 text-lg">Tailwind heading <span class="text-gray-400 dark:text-zinc-100/60">1.125rem (18px)</span></h5>
+                                <h6 class="font-semibold text-gray-700 dark:text-gray-100 text-sm">Tailwind heading <span class="text-13 text-gray-400 dark:text-zinc-100/60">0.875rem (14px)</span></h6>
+                            </div>
+                        </div>
+
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body">
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-6">
+                                        <div class="flex flex-wrap items-center">
+                                            <div class="shrink-0">
+                                                <h1 class="text-6xl font-medium text-gray-600 dark:text-gray-100">Aa</h1>
+                                            </div>
+                                            <div class="ltr:ml-4 rtl:mr-4">
+                                                <p class="text-muted mb-2 text-gray-500 dark:text-zinc-100">Font Weight</p>
+                                                <h4 class="mb-0 text-gray-600 dark:text-gray-100">500</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-6">
+                                        <div class="flex flex-wrap items-center">
+                                            <div class="shrink-0">
+                                                <h1 class="text-6xl font-semibold mb-0 text-gray-600 dark:text-gray-100">Aa</h1>
+                                            </div>
+                                            <div class="ltr:ml-4 rtl:mr-4">
+                                                <p class="text-muted mb-2 text-gray-500 dark:text-zinc-100">Font Weight</p>
+                                                <h4 class="mb-0 text-gray-600 dark:text-gray-100">600</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                    <!-- start col -->
+                    <div class="col-span-12 xl:col-span-6">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Headings</h6>
+                            </div>
+                            <div class="card-body space-y-1">
+                                <h1 class="font-normal text-gray-600 dark:text-gray-100 text-9xl">Text-9xl</h1>
+                                <h2 class="font-normal text-gray-600 dark:text-gray-100 text-8xl">Text-8xl</h2>
+                                <h3 class="font-normal text-gray-600 dark:text-gray-100 text-7xl">Text-7xl</h3>
+                                <h4 class="font-normal text-gray-600 dark:text-gray-100 text-6xl">Text-6xl</h4>
+                                <h5 class="font-normal text-gray-600 dark:text-gray-100 text-5xl">Text-5xl</h5>
+                                <h6 class="font-normal text-gray-600 dark:text-gray-100 text-4xl">Text-4xl</h6>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-3xl">Text-3xl</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-2xl">Text-2xl</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-xl">Text-xl</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-lg">Text-lg</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-base">Text-base</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-sm">Text-sm</p>
+                                <p class="font-normal text-gray-600 dark:text-gray-100 text-xs">Text-xs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+            <!-- end grid -->
+
+
+    
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

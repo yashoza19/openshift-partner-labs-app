@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Invoice List"})
+
+     <link href="assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css">
+
+    @@include('./partials/head-css.html')
+
+</head>
+    @@include('./partials/body.html')
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+
+        <div class="main-content">
+            <div class="page-content dark:bg-zinc-700">
+                <div class="container-fluid px-[0.625rem]">
+                    @@include('./partials/page-title.html', {"pagetitle": "Apps", "title": "Invoice List"})
+
+                    
+                    <div class=" grid grid-cols-1">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body">
+                                <div class="flex items-center mb-3">
+                                    <div class="flex-grow">
+                                        <div class="mb-4 inline-flex items-center">
+                                            <img src="assets/images/logo-sm.svg" class="h-6" alt=""><span class="ltr:ml-2 rtl:mr-2 text-lg font-medium text-gray-700 dark:text-gray-100">Minia</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <div class="mb-4">
+                                            <h4 class="float-end text-16 text-gray-600 dark:text-gray-100">Invoice # 12345</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="mb-1 text-gray-700 dark:text-zinc-100">1874 County Line Road City, FL 33566</p>
+                                    <p class="mb-1 text-gray-700 dark:text-zinc-100"><i class="mdi mdi-email align-middle ltr:mr-1 rtl:ml-1"></i> abc@123.com</p>
+                                    <p class="mb-1 text-gray-700 dark:text-zinc-100"><i class="mdi mdi-phone align-middle ltr:mr-1 rtl:ml-1"></i> 012-345-6789</p>
+                                    <hr class="my-5 border-gray-100 dark:border-zinc-600">
+                                </div>
+
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-12 md:col-span-6">
+                                        <h5 class="text-15 text-gray-700 mb-3 dark:text-gray-100">Billed To:</h5>
+                                        <h5 class="text-base text-gray-700 mb-2 dark:text-zinc-100">Richard Saul</h5>
+                                        <p class="mb-1 text-gray-600 dark:text-zinc-100">1208 Sherwood Circle Lafayette, LA 70506</p>
+                                        <p class="mb-1 text-gray-600 dark:text-zinc-100">RichardSaul@rhyta.com</p>
+                                        <p class="text-gray-600 dark:text-zinc-100">337-256-9134</p>
+                                    </div>
+                                    <div class="col-span-12 md:col-span-6">
+                                        <h5 class="text-15 mb-2 text-gray-700 dark:text-gray-100">Order Date:</h5>
+                                        <p class="text-gray-600 dark:text-zinc-100">February 16, 2020</p>
+                                        <div class="my-4">
+                                            <h5 class="text-15 text-gray-700 mb-1 dark:text-gray-100">Payment Method:</h5>
+                                            <p class="mb-1 text-gray-600 dark:text-zinc-100">Visa ending **** 4242</p>
+                                            <p class="text-gray-600 dark:text-zinc-100">richards@email.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="py-2 mt-3">
+                                    <h5 class="text-15 text-gray-700 dark:text-gray-100">Order summary</h5>
+                                    <div class="card mt-3 dark:border-zinc-600">
+                                        <div class="p-6">
+                                            <table class="w-full">
+                                                <thead class="border-b border-gray-50 dark:border-zinc-600 ">
+                                                    <th class="p-3 w-28 text-start text-gray-700 dark:text-gray-100">No.</th>
+                                                    <th class="text-start p-3 text-gray-700 dark:text-gray-100">Item</th>
+                                                    <th class="text-end p-3 w-32 text-gray-700 dark:text-gray-100">Price</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="border-b border-gray-50 dark:border-zinc-600 "> 
+                                                        <th scope="row" class="text-start p-3 text-gray-700 dark:text-gray-100">01</th>
+                                                        <td class="p-3">
+                                                            <h5 class="text-15 mb-1 text-gray-700 dark:text-gray-100">Minia</h5>
+                                                            <p class="text-13 text-gray-500 dark:text-zinc-100 mb-0">Bootstrap 5 Admin Dashboard </p>
+                                                        </td>
+                                                        <td class="text-end p-3 text-gray-500 dark:text-zinc-100">$499.00</td>
+                                                    </tr>
+                                                    <tr class="border-b border-gray-50 dark:border-zinc-600 "> 
+                                                        <th scope="row" class="text-start p-3 text-gray-700 dark:text-gray-100">02</th>
+                                                        <td class="p-3">
+                                                            <h5 class="text-15 mb-1 text-gray-700 dark:text-gray-100">Skote</h5>
+                                                            <p class="text-13 text-gray-500 dark:text-zinc-100 mb-0">Bootstrap 5 Admin Dashboard </p>
+                                                        </td>
+                                                        <td class="text-end p-3 text-gray-500 dark:text-zinc-100">$499.00</td>
+                                                    </tr>
+                                                    <tr class="border-b border-gray-50 dark:border-zinc-600 ">
+                                                        <th scope="row" colspan="2" class="text-end p-3 text-gray-700 dark:text-gray-100">Sub Total</th>
+                                                        <td class="text-end p-3 text-gray-500 dark:text-zinc-100">$998.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" colspan="2" class="text-end p-3 text-gray-700 dark:text-gray-100">Tax</th>
+                                                        <td class="text-end p-3 text-gray-500 dark:text-zinc-100">$12.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" colspan="2" class="text-end p-3 text-gray-700 dark:text-gray-100">Total</th>
+                                                        <td class="p-3 text-gray-700 dark:text-gray-100 text-end"><h4 class="m-0">$1010.00</h4></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="float-right pb-5 space-x-2">
+                                        <a href="" class="btn bg-green-500 border-transparent text-white shadow-md shadow-green-200 dark:shadow-zinc-600"><i class="fa fa-print"></i></a>
+                                        <a href="#" class="btn bg-violet-500 border-violet-500 text-white w-28 shadow-md shadow-violet-100 dark:shadow-zinc-600">Send</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @@include('./partials/footer.html')
+                </div>
+            </div>
+        </div>
+
+        @@include('./partials/rtl-ltr.html')
+        
+    @@include("./partials/vendor-scripts.html")
+
+    <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

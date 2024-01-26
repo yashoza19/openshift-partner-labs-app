@@ -1,0 +1,198 @@
+/* Template Name: Minia - Tailwindcss Admin Dashboard Template
+   Author: Themesbrand
+   Version: 1.0.0
+   File Description: Main Css file of the template
+*/
+
+/* // Tailwindcss */
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+/* Custom Css */
+@import "custom/general.css";
+@import "custom/components.css";
+@import "custom/form.css";
+@import "custom/login.css";
+@import "custom/auth.css";
+
+@import "structure/sidebar.css";
+
+/* @import "plugins/all-custom.css"; */
+@import "plugins/custom-scrollbar.css";
+@import "plugins/range-slider.css";
+@import "plugins/glightbox.css";
+@import "plugins/sweetalert2.css";
+@import "plugins/alertify.css";
+@import "plugins/flatpickr.css";
+@import "plugins/switch.css";
+@import "plugins/choices.css";
+@import "plugins/ckeditor.css";
+@import "plugins/dropzon.css";
+@import "plugins/datatables.css";
+@import "plugins/table-responsive.css";
+@import "plugins/apexchart.css";
+@import "plugins/materialdesign.css";
+@import "plugins/map.css";
+@import "plugins/calender.css";
+
+
+:root {
+   --tw-sidebar-width: 250px;
+   --tw-sidebar-bg: #fbfaff;
+}
+
+.progress-bar-striped {
+   background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+   background-size: 0.625rem;
+}
+
+.animate-strip {
+   animation: strip 2s infinite;
+}
+
+@keyframes strip {
+   from {
+      background-position: 50px 0;
+   }
+   to {
+      background-position: 0 0;
+   }
+}
+
+.placeholder-wave {
+   mask-image: linear-gradient(130deg, #000 55%, rgba(0, 0, 0, 0.801) 75%, #000 95%);
+   mask-size: 200% 100%;
+   animation: placeholder-wave 2s linear infinite;
+}
+
+@keyframes placeholder-wave {
+   100% {
+      mask-position: -200% 0%;
+   }
+}
+
+.animate-translate {
+   animation: animate-translate !important;
+   animation-duration: 0.8s !important;
+   animation-fill-mode: both !important;
+}
+
+@keyframes animate-translate {
+   100% {
+      transform: translateY(40px);
+      opacity: 100%;
+   }
+   0% {
+      transform: translateY(0);
+      opacity: 0%;
+   }
+}
+
+.bg-bubbles li {
+   animation: square ease 20s infinite;
+   bottom: -50px;
+
+}
+
+.bg-bubbles li:nth-child(2) {
+   animation: square ease 17s infinite;
+   animation-delay: 2s;
+}
+
+.bg-bubbles li:nth-child(3) {
+   animation: square ease 20s infinite;
+   animation-delay: 4s;
+}
+
+.bg-bubbles li:nth-child(4) {
+   animation: square ease 22s infinite;
+}
+
+.bg-bubbles li:nth-child(6) {
+   animation: square ease 20s infinite;
+   animation-delay: 3s;
+}
+
+.bg-bubbles li:nth-child(7) {
+   animation: square ease 20s infinite;
+   animation-delay: 7s;
+}
+
+.bg-bubbles li:nth-child(8) {
+   animation: square ease 40s infinite;
+   animation-delay: 15s;
+}
+
+.bg-bubbles li:nth-child(9) {
+   animation: square ease 40s infinite;
+   animation-delay: 2s;
+}
+
+.bg-bubbles li:nth-child(10) {
+   animation: square ease 20s infinite;
+   animation-delay: 11s;
+}
+
+@keyframes square {
+   0% {
+      transform: translateY(0);
+   }
+   100% {
+      transform: translateY(-1000px) rotate(600deg);
+   }
+}
+
+.swal2-title {
+   @apply text-22
+}
+
+.form-range {
+   @apply bg-slate-50
+}
+
+.card-h-100 {
+   height: calc(100% - 20px) !important;
+}
+
+.progress-bar-striped {
+   background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+
+select{
+   font-size: 14px !important;
+}
+.nav-tabs ul li a{
+   @apply dark:text-gray-100;
+}
+
+.nav-tabs.border-tab ul li .active{
+   @apply border border-b-0 rounded-md border-violet-300 rounded-b-none text-violet-300 dark:text-violet-300;
+}
+
+.nav-tabs.border-b-tabs ul li .active{
+   @apply border-violet-300 border-b-2 text-violet-300;
+}
+
+.nav-tabs.tab-pill ul li .active{
+   @apply bg-violet-300 text-white;
+}
+
+.nav-tabs.chart-tabpill ul li .active {
+   @apply bg-white text-violet-500 rounded dark:bg-zinc-800;
+}
+
+.nav-tabs.bar-tabs ul li .active {
+   @apply bg-violet-300 text-white;
+}
+.accordion-item .accordion-header{
+   @apply text-gray-200;
+}
+.accordion-item .accordion-header{
+   @apply text-gray-500;
+}
+.accordion-item .accordion-header.active{
+   @apply text-violet-500;
+}
+

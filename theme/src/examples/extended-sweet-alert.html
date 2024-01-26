@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "SweetAlert 2"})
+
+    <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+        <div class="main-content"> 
+            <div class="page-content dark:bg-zinc-700">
+                
+                <div class="container-fluid px-[0.625rem]">
+
+                    @@include('./partials/page-title.html', {"pagetitle": "Extended", "title": "SweetAlert 2"})
+                    
+
+                    <div class="grid grid-cols-1">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Examples</h6>
+                            </div>
+                            <div class="card-body relative overflow-x-auto">
+                                <table class="table w-full text-gray-700 dark:text-zinc-100">
+                                    <thead>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="col" class="w-[50%] text-start p-3">
+                                                Sweet Alert Type
+                                            </th>
+                                            <th scope="col" class="text-center p-3">
+                                                Sweet Alert Examples
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A Basic Message
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-basic">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A Title with a Text Under
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-title">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A success message!
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-success">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A warning message, with a function attached to the "Confirm"-button...
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-warning">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                By passing a parameter, you can execute something else for "Cancel".
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-params">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A message with custom Image Header
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-image">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A message with auto close timer
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-close">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                Custom HTML description and buttons
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="custom-html-alert">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A custom positioned dialog
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="sa-position">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                A message with custom width, padding and background
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="custom-padding-width-alert">Click me</button>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-b border-gray-50 dark:border-zinc-600">
+                                            <th scope="row" class="text-start p-3">
+                                                Ajax request example
+                                            </th>
+                                            <td class="text-center p-3">
+                                                <button type="button" class="btn text-xs bg-violet-500 border-transparent text-white hover:bg-violet-700 focus:bg-violet-700 focus:ring focus:ring-violet-50 dark:focus:ring-violet-500/30" id="ajax-alert">Click me</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                    @@include('./partials/footer.html')
+                </div>
+            </div>
+        </div>
+
+        @@include('./partials/rtl-ltr.html')
+
+        <!-- Sweet Alerts js -->
+        <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="assets/js/pages/sweetalert.init.js"></script>
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

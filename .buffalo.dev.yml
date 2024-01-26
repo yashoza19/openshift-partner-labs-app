@@ -10,13 +10,17 @@ ignored_folders:
 - bin
 - node_modules
 - .sass-cache
+- theme
 included_extensions:
 - .go
 - .env
+- .html
+- .js
+- .css
 build_path: tmp
 build_delay: 200ns
 build_target_path: "./cmd/app"
-binary_name: redhat-openshift-partner-labs-app-build
+binary_name: app
 command_flags: []
 enable_colors: true
-log_name: buffalo
+log_name: openshift-partner-labs-app

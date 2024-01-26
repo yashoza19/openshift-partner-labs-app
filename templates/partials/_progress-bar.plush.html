@@ -1,0 +1,5 @@
+<% let pct = progress(start, end) %>
+<div class="progress h-4 w-full bg-gray-50 rounded-full relative dark:bg-zinc-600">
+    <div class="progress-bar h-4 bg-red-400 rounded-full<%= if (pct != 100) { %> ltr:rounded-r-none rtl:rounded-l-none<% } %>" role="progressbar" style="width: <%= pct %>%"></div>
+</div>
+<span>Reservation Time Used: <%= pct %>%</span>

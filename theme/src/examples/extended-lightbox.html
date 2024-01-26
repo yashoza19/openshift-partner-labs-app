@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Lightbox"})
+
+    <link rel="stylesheet" href="assets/libs/glightbox/css/glightbox.min.css">
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700 min-h-screen">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Extended", "title": "Lightbox"})
+    
+                <div class="grid grid-cols-1">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Single Image Lightbox</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-3">
+                            <div class="grid grid-cols-12 gap-5">
+                                <div class="col-span-12 lg:col-span-3">
+                                    <div>
+                                        <a href="assets/images/small/img-1.jpg" class="image-popup">
+                                            <img src="assets/images/small/img-1.jpg" class="img-fluid" alt="work-thumbnail">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-span-12 lg:col-span-3">
+                                    <div>
+                                        <a href="assets/images/small/img-2.jpg" class="image-popup">
+                                            <img src="assets/images/small/img-2.jpg" class="img-fluid" alt="work-thumbnail">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-12 gap-5">
+                        <div class="col-span-6">
+                            <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                                <div class="card-body pb-0">
+                                    <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Images with Description</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="grid grid-cols-12 gap-4">
+                                        <div class="col-span-12 lg:col-span-3">
+                                            <div>
+                                                <a href="assets/images/small/img-4.jpg" class="image-popup">
+                                                    <img src="assets/images/small/img-4.jpg" class="img-fluid" alt="work-thumbnail">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-12 lg:col-span-3">
+                                            <div>
+                                                <a href="assets/images/small/img-5.jpg" class="image-popup">
+                                                    <img src="assets/images/small/img-5.jpg" class="img-fluid" alt="work-thumbnail">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-12 lg:col-span-3">
+                                            <div>
+                                                <a href="assets/images/small/img-1.jpg" class="image-popup">
+                                                    <img src="assets/images/small/img-1.jpg" class="img-fluid" alt="work-thumbnail">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6">
+                            <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                                <div class="card-body pb-0">
+                                    <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Popup with Video or Map</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="flex flex-wrap gap-4">
+                                        <a href="https://www.youtube.com/watch?v=0O2aH4XLbto" class="btn bg-gray-50 border-transparent image-popup-video-map dark:bg-zinc-700 dark:text-gray-100" data-title="YouTube Video" data-description="YouTube Video Popup">
+                                            Open YouTube Video
+                                        </a>
+                                        <a href="https://vimeo.com/45830194" class="btn bg-gray-50 border-transparent image-popup-video-map dark:bg-zinc-700 dark:text-gray-100" data-title="Vimeo Video" data-description="Vimeo Video Popup">
+                                                Open Vimeo Video
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+    
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+        @@include('./partials/rtl-ltr.html')
+
+        <script src="assets/libs/glightbox/js/glightbox.min.js"></script>
+
+        <!-- lightbox init -->
+        <script src="assets/js/pages/lightbox.init.js"></script>
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

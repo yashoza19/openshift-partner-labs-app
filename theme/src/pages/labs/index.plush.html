@@ -1,0 +1,41 @@
+<% let title = "View" %>
+
+<%= partial("partials/page-title.html", {pagetitle: "Requests", title: title}) %>
+
+<div class="grid xl:grid-cols-12 md:grid-cols-12 grid-cols-12 gap-6">
+  <div class="card col-span-12">
+    <div class="card-body relative overflow-x-auto">
+      <table id="requests-table" class="table w-full pt-4 text-gray-700 dark:text-zinc-100">
+        <thead>
+        <tr class="text-left">
+          <th class="p-4 pr-8 border rtl:border-l-0 border-y-2 border-gray-50 dark:border-zinc-600">Cluster Name</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Company</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Created</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Expires</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Reserved</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Extended</th>
+          <th class="p-4 pr-8 border border-y-2 border-gray-50 dark:border-zinc-600 border-l-0">Usage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= for (lab) in labs { %>
+        <tr>
+          <td class="p-4 pr-8 border rtl:border-l-0 border-t-0 border-gray-50 dark:border-zinc-600"><a class="underline" href="/labs/<%= lab.ID %>"><%= lab.GeneratedName %></a></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600"><%= lab.CompanyName %></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600"><%= extdate(lab.CreatedAt) %></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600"><%= extdate(lab.EndDate) %></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600"><%= lab.LeaseTime %></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600"><%= if (lab.State == "extended") { %>Yes<% } else { %>No<% } %></td>
+          <td class="p-4 pr-8 border border-t-0 border-l-0 border-gray-50 dark:border-zinc-600">
+            <% let pct = progress(lab.StartDate, lab.EndDate) %>
+            <div class="progress h-4 w-full bg-gray-50 rounded-full relative dark:bg-zinc-600">
+              <div class="progress-bar h-4 bg-<%= color(pct) %>-400 rounded-full<%= if (pct != 100) { %> ltr:rounded-r-none rtl:rounded-l-none<% } %>" role="progressbar" style="width: <%= pct %>%"></div>
+            </div>
+          </td>
+        </tr>
+        <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+/* coming soon */
+
+.mySwiper .swiper-pagination-bullet {
+    height: 25px;
+    width: 25px;
+    outline: 3px solid rgba(255, 255, 255, 0.300);
+    opacity: 1;
+    margin: 0 6px !important;
+}
+
+.mySwiper .swiper-pagination{
+    text-align: center !important;
+    bottom: 20px;
+}
+
+.mySwiper [aria-label="Go to slide 1"] {
+    background-image: url(/assets/images/bg-1.jpg) !important;
+    background-size: cover;
+}
+.mySwiper [aria-label="Go to slide 2"] {
+    background-image: url(/assets/images/bg-2.jpg) !important;
+    background-size: cover;
+}
+.mySwiper [aria-label="Go to slide 3"] {
+    background-image: url(/assets/images/bg-3.jpg) !important;
+    background-size: cover;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+    background-color: transparent !important;
+    outline: 3px solid white;
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Buttons"})
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Components", "title": "Utilities"})
+
+
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">All sides borders</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border border-gray-200 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-2 border-gray-200 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-4 border-gray-200 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-8 border-gray-200 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">All sides borders</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-t-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-r-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-b-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-l-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Horizontal and vertical sides borders</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-x-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                            <div class="border-y-2 border-violet-500 p-12 bg-gray-50/50 dark:bg-zinc-700"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Changing the opacity</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-2 border-violet-500/5 p-12"></div>
+                            <div class="border-2 border-violet-500/25 p-12"></div>
+                            <div class="border-2 border-violet-500/50 p-12"></div>
+                            <div class="border-2 border-violet-500/75 p-12"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Individual sides</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-2 border-gray-100 border-t-gray-500 dark:border-violet-500/30 dark:border-t-violet-500 p-12"></div>
+                            <div class="border-2 border-gray-100 border-r-gray-500 dark:border-violet-500/30 dark:border-r-violet-500 p-12"></div>
+                            <div class="border-2 border-gray-100 border-b-gray-500 dark:border-violet-500/30 dark:border-b-violet-500 p-12"></div>
+                            <div class="border-2 border-gray-100 border-l-gray-500 dark:border-violet-500/30 dark:border-l-violet-500 p-12"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Horizontal and vertical sides borders</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-2 border-violet-100 border-x-violet-500 p-12 dark:border-violet-500/20 dark:border-x-violet-500"></div>
+                            <div class="border-2 border-violet-100 border-y-violet-500 p-12 dark:border-violet-500/20 dark:border-y-violet-500"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Border style</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="border-solid border-2 border-violet-500 p-12"></div>
+                            <div class="border-dashed border-2 border-violet-500 p-12"></div>
+                            <div class="border-dotted border-2 border-violet-500 p-12"></div>
+                            <div class="border-double border-2 border-violet-500 p-12"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Outline style</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="outline outline-2 outline-offset-2 outline-violet-200 bg-violet-200 dark:bg-violet-500/20 p-12"></div>
+                            <div class="outline-dashed outline-2 outline-offset-2 outline-violet-200 bg-violet-200 dark:bg-violet-500/20 p-12"></div>
+                            <div class="outline-dotted outline-2 outline-offset-2 outline-violet-200 bg-violet-200 dark:bg-violet-500/20 p-12"></div>
+                            <div class="outline-double outline-3 outline-offset-2 outline-violet-200 bg-violet-200 dark:bg-violet-500/20 p-12"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Outline offset</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-6">
+                            <div class="outline outline-offset-0 outline-gray-100 bg-gray-50 dark:bg-gray-500/20 p-12"></div>
+                            <div class="outline outline-offset-2 outline-gray-100 bg-gray-50 dark:bg-gray-500/20 p-12"></div>
+                            <div class="outline outline-offset-4 outline-gray-100 bg-gray-50 dark:bg-gray-500/20 p-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Adding a ring</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-8">
+                            <div class=" ring-2 ring-gray-100 p-12 bg-gray-50 dark:bg-gray-500/20"></div>
+                            <div class=" ring ring-gray-100 p-12 bg-gray-50 dark:bg-gray-500/20"></div>
+                            <div class=" ring-4 ring-gray-100 p-12 bg-gray-50 dark:bg-gray-500/20"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100"> Ring offset width</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-8">
+                            <div class="ring-offset-0 ring-2 ring-violet-50 p-12 bg-violet-200 dark:bg-violet-500/20"></div>
+                            <div class="ring-offset-2 ring-2 ring-violet-50 p-12 bg-violet-200 dark:bg-violet-500/20"></div>
+                            <div class="ring-offset-4 ring-2 ring-violet-50 p-12 bg-violet-200 dark:bg-violet-500/20"></div>
+                            <div class="ring-offset-8 ring-2 ring-violet-50 p-12 bg-violet-200 dark:bg-violet-500/20"></div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Rounded corners</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-sm" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-md" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-lg" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-2xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-3xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-full" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-5">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Rounding sides separately</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-4">
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-t-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-r-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-b-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-l-xl" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                            <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100"> Rounding corners separately</h6>
+                        </div>
+                        <div class="card-body flex flex-wrap gap-8">
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-tl-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-tr-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-br-xl" alt="">
+                            </div>
+                            <div class="h-20 w-20">
+                                <img src="assets/images/users/avatar-7.jpg" class="rounded-bl-xl" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Form Editor"})
+
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700 min-h-screen">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Components", "title": "Form Editor"})
+                
+
+                <div class="grid grid-cols-1">
+                    <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                        <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Ckeditor Classic editor</h6>
+                        </div>
+                        <div class="card-body">
+                             <div id="ckeditor-classic"></div>
+                        </div>
+                    </div>
+                </div>
+              
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+    
+    @@include('./partials/vendor-scripts.html')
+
+        <!-- ckeditor -->
+        <script src="assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+        <!-- init js -->
+        <script src="assets/js/pages/form-editor.init.js"></script>
+    
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,49 +1,27 @@
 ---
 development:
-  dialect: "mysql"
-  database: "redhat_openshift_partner_labs_app_development"
-  host: "localhost"
-  port: "3306"
-  user: "root"
-  password: "root"
+  dialect: {{envOr "DEV_DATABASE_DIALECT" "postgres"}}
+  driver: {{envOr "DEV_DATABASE_DRIVER" "pgx"}}
+  database: {{envOr "DEV_DATABASE_NAME" "postgres"}}
+  user: {{envOr "DEV_DATABASE_USER" "postgres"}}
+  password: {{envOr "DEV_DATABASE_PASSWORD" "postgres"}}
+  host: {{envOr "DEV_DATABASE_HOST" "localhost"}}
+  encoding: {{envOr "DEV_DATABASE_ENCODING" "utf8"}}
 
 test:
-  dialect: "mysql"
-  #
-  # You can use a single URL string for the same configuration:
-  #
-  #url: "mysql://root:root@(localhost:3306)/redhat_openshift_partner_labs_app_test?parseTime=true&multiStatements=true&readTimeout=3s"
-  #
-  # Note that if you use `url`, other configurations are silently ignored.
-  # In this case, the URL must contain all required connection parameters.
-  #
-  database: "redhat_openshift_partner_labs_app_test"
-  host: "localhost"
-  port: "3306"
-  user: "root"
-  password: "root"
+  dialect: {{envOr "DATABASE_DIALECT" "postgres"}}
+  driver: {{envOr "DATABASE_DRIVER" "pgx"}}
+  database: {{envOr "TEST_DATABASE_NAME" "postgres"}}
+  user: {{envOr "TEST_DATABASE_USER" "postgres"}}
+  password: {{envOr "TEST_DATABASE_PASSWORD" "postgres"}}
+  host: {{envOr "TEST_DATABASE_HOST" "localhost"}}
+  encoding: {{envOr "TEST_DATABASE_ENCODING" "utf8"}}
 
 production:
-  #
-  # You can also use environmental variables to override values in this config.
-  #
-  #url: {{envOr "DATABASE_URL" "mysql://root:root@(localhost:3306)/redhat_openshift_partner_labs_app_production?parseTime=true&multiStatements=true&readTimeout=3s"}}
-  #
-  dialect: "mysql"
-  database: "redhat_openshift_partner_labs_app_production"
+  dialect: {{envOr "DATABASE_DIALECT" "postgres"}}
+  driver: {{envOr "DATABASE_DRIVER" "pgx"}}
+  database: {{envOr "DATABASE_NAME" "postgres"}}
+  user: {{envOr "DATABASE_USER" "postgres"}}
+  password: {{envOr "DATABASE_PASSWORD" "postgres"}}
   host: {{envOr "DATABASE_HOST" "localhost"}}
-  port: {{envOr "DATABASE_PORT" "3306"}}
-  user: {{envOr "DATABASE_USER" "root"}}
-  password: {{envOr "DATABASE_PASSWORD" "root"}}
-  #
-  # And you can also override connection parameters by setting it under options.
-  #
-  #options:
-  #  parseTime: true
-  #  multiStatements: true
-  #  readTimeout: 3s
-  #  collation: "utf8mb4_general_ci"
-  #
-  # CAUTION!
-  #   `parseTime` and` multiStatements` must be set to `true` to work properly.
-  #   If you are not sure, do not change (or set) these values.
+  encoding: {{envOr "DATABASE_ENCODING" "utf8"}}

@@ -1,0 +1,197 @@
+<form action="<%= labsPath() %>" method="POST">
+    <input name="authenticity_token" type="hidden" value="<%= authenticity_token %>">
+    <input id="request_type" name="request_type" type="hidden" value="general">
+    <input id="state" name="state" type="hidden" value="pending">
+
+    <div class="gap-6">
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Request Details</h4>
+            </div>
+            <div class="col-span-6">
+                <label for="project_name">Project Name</label>
+                <input class="block w-full" type="text" id="project_name" name="project_name" required
+                       placeholder="<%= lab.ProjectName %>" value="<%= lab.ProjectName %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="company_name">Company Name</label>
+                <input class="block w-full" type="text" id="company_name" name="company_name" required
+                       placeholder="<%= lab.CompanyName %>" value="<%= lab.CompanyName %>"/>
+            </div>
+            <div class="grid grid-cols-12 col-span-12 gap-6">
+                <div class="card col-span-3 dark:bg-zinc-800 dark:border-zinc-600">
+                    <div class="card-body">
+                        <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">General</h6>
+                        <p class="card-text text-gray-600 dark:text-zinc-100">Direct engineering support not required. You will most likely be making this type of request.</p>
+                        <div class="mt-4">
+                            <a hx-on:click="alert('Request type set to General')" href="javascript: setRequestType('general');" class="btn border-transparent bg-violet-500 block text-center text-white shadow shadow-violet-300 dark:shadow-zinc-600">Set Request Type</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-span-3 dark:bg-zinc-800 dark:border-zinc-600">
+                    <div class="card-body">
+                        <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Engineering</h6>
+                        <p class="card-text text-gray-600 dark:text-zinc-100">Direct engineering support or exotic customizations. You must provide clear/specific details.</p>
+                        <div class="mt-4">
+                            <a hx-on:click="alert('Request type set to Engineering')" href="javascript: setRequestType('engineering');" class="btn border-transparent bg-violet-500 block text-center text-white shadow shadow-violet-300 dark:shadow-zinc-600">Set Request Type</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-span-3 dark:bg-zinc-800 dark:border-zinc-600">
+                    <div class="card-body">
+                        <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">ROSA</h6>
+                        <p class="card-text text-gray-600 dark:text-zinc-100">ROSA support. Should only be selected for ROSA cluster requests.</p>
+                        <div class="mt-4">
+                            <a hx-on:click="alert('Request type set to ROSA')" href="javascript: setRequestType('rosa');" class="btn border-transparent bg-violet-500 block text-center text-white shadow shadow-violet-300 dark:shadow-zinc-600">Set Request Type</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-span-3 dark:bg-zinc-800 dark:border-zinc-600">
+                    <div class="card-body">
+                        <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Nvidia</h6>
+                        <p class="card-text text-gray-600 dark:text-zinc-100">Nvidia support. Should only be selected for nvidia partner requests.</p>
+                        <div class="mt-4">
+                            <a hx-on:click="alert('Request type set to Nvidia')" href="javascript: setRequestType('nvidia');" class="btn border-transparent bg-violet-500 block text-center text-white shadow shadow-violet-300 dark:shadow-zinc-600">Set Request Type</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-6">
+                <label for="description">Description</label>
+                <textarea class="block w-full h-48" id="description" name="description" required
+                          placeholder="<%= lab.Description %>"><%= lab.Description %></textarea>
+            </div>
+            <div class="col-span-6">
+                <label for="notes">Notes</label>
+                <textarea class="block w-full h-48" id="notes" name="notes"
+                          placeholder="<%= lab.Notes %>"><%= lab.Notes %></textarea>
+            </div>
+        </div>
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Contact Details</h4>
+            </div>
+            <div class="col-span-6">
+                <label for="sponsor">Sponsor</label>
+                <%= if (!current_user.Admin) { %>
+                <input disabled readonly class="block w-full" type="text" id="sponsor" name="sponsor"
+                       placeholder="<%= current_user.Email %>" value="<%= current_user.Email %>"/>
+                <% } %>
+                <%= if (current_user.Admin && !errors) { %>
+                <input class="block w-full" type="text" id="sponsor" name="sponsor" required
+                       placeholder="" value=""/>
+                <% } %>
+                <%= if (current_user.Admin && errors && lab.Sponsor != "") { %>
+                <input class="block w-full" type="text" id="sponsor" name="sponsor" required
+                       placeholder="<%= lab.Sponsor %>" value="<%= lab.Sponsor %>"/>
+                <% } %>
+            </div>
+            <div class="col-span-6"></div>
+            <div class="col-span-12">
+                <h6>Primary Contact</h6>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_first">First Name</label>
+                <input class="block w-full" type="text" id="primary_first" name="primary_first" required
+                       placeholder="<%= lab.PrimaryFirst %>" value="<%= lab.PrimaryFirst %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_last">Last Name</label>
+                <input class="block w-full" type="text" id="primary_last" name="primary_last" required
+                       placeholder="<%= lab.PrimaryLast %>" value="<%= lab.PrimaryLast %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_email">Email</label>
+                <input class="block w-full" type="email" id="primary_email" name="primary_email" required
+                       placeholder="<%= lab.PrimaryEmail %>" value="<%= lab.PrimaryEmail %>"/>
+            </div>
+            <div class="col-span-12">
+                <h6>Secondary Contact</h6>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_first">First Name</label>
+                <input class="block w-full" type="text" id="secondary_first" name="secondary_first" required
+                       placeholder="<%= lab.SecondaryFirst %>" value="<%= lab.SecondaryFirst %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_last">Last Name</label>
+                <input class="block w-full" type="text" id="secondary_last" name="secondary_last" required
+                       placeholder="<%= lab.SecondaryLast %>" value="<%= lab.SecondaryLast %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_email">Email</label>
+                <input class="block w-full" type="email" id="secondary_email" name="secondary_email" required
+                       placeholder="<%= lab.SecondaryEmail %>" value="<%= lab.SecondaryEmail %>"/>
+            </div>
+        </div>
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Cluster Specifications</h4>
+            </div>
+            <div class="col-span-6">
+                <label for="cluster_name">Cluster Name</label>
+                <input class="block w-full" type="text" id="cluster_name" name="cluster_name" required
+                       placeholder="<%= lab.ClusterName %>" value="<%= lab.ClusterName %>"/>
+            </div>
+            <div class="col-span-6"></div>
+            <div class="col-span-3">
+                <label for="cluster_size">Cluster Size</label>
+                <select class="block w-full" id="cluster_size" name="cluster_size">
+                    <option value="small" selected>Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">X-Large</option>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="openshift_version">OpenShift Version</label>
+                <select class="block w-full" id="openshift_version" name="openshift_version">
+                    <%= for (image) in releaseimages { %>
+                    <option value="<%= image.String() %>"><%= image.String() %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="cloud_provider">Cloud Provider</label>
+                <select class="block w-full" id="cloud_provider" name="cloud_provider">
+                    <option value="aws" selected>AWS</option>
+                    <option disabled value="ibm">IBM Cloud</option>
+                    <option disabled value="gcp">Google Cloud</option>
+                    <option disabled value="azure">Azure</option>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="region">Region</label>
+                <select class="block w-full" id="region" name="region">
+                    <option value="na" selected>NA</option>
+                    <option value="latam">LATAM</option>
+                    <option value="emea">EMEA</option>
+                    <option value="apac">APAC</option>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="lease_time">Lease Time</label>
+                <select class="block w-full" id="lease_time" name="lease_time">
+                    <option value="1d" selected>One Day</option>
+                    <option value="1w">One Week</option>
+                    <option value="2w">Two Weeks</option>
+                    <option value="1m">One Month</option>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="start_date">Start Date</label>
+                <input class="w-full placeholder:text-sm focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:border-zinc-600 dark:text-zinc-100"
+                       type="date" value="" id="start_date" name="start_date" required>
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-cols-12 gap-6 p-6 justify-end">
+        <a href="<%= labsPath() %>" class="btn text-white bg-yellow-500 border-yellow-500 hover:bg-yellow-600 hover:border-yellow-600 focus:bg-yellow-600 focus:border-yellow-600 focus:ring focus:ring-yellow-500/30 active:bg-yellow-600 active:border-yellow-600">
+            Cancel
+        </a>
+        <button role="submit" class="btn text-white bg-green-500 border-green-500 hover:bg-green-600 hover:border-green-600 focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-500/30 active:bg-green-600 active:border-green-600">
+            Save
+        </button>
+    </div>
+</form>

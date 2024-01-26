@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "ChartJS"})
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content"> 
+        <div class="page-content dark:bg-zinc-700 min-h-screen">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Charts", "title": "ChartJS"})
+    
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+                    <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Line Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                                <canvas id="lineChart" height="320" data-colors='["rgba(81, 86, 190, 0.2)", "#5156be", "rgba(251, 252, 252, 0.5)", "#ecf0f3"]'></canvas>                              
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Bar Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                                <canvas id="bar" height="320" data-colors='["rgba(41, 181, 125, 0.8)", "rgba(41, 181, 125, 0.9)"]'></canvas>           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+                    <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Pie Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                                 <canvas id="pie" height="320" data-colors='["#2ab57d", "#ebeff2"]'></canvas>                             
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Donut Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                               <canvas id="doughnut" height="320" data-colors='["#5156be", "#ebeff2"]'></canvas>          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+                    <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Polar Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                                <canvas id="polarArea" height="320" data-colors='["#fd625e", "#2ab57d", "#ffbf53", "#5156be"]'> </canvas>                           
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-span-6">
+                         <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-600">Radar Chart</h6>
+                            </div>
+                            <div class="card-body flex flex-wrap gap-3">
+                               <canvas id="radar" height="320" data-colors='["rgba(42, 181, 125, 0.2)", "#2ab57d", "rgba(81, 86, 190, 0.2)", "#5156be"]'></canvas>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+    
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+     <!-- Chart JS -->
+        <script src="assets/libs/chart.js/Chart.bundle.min.js"></script>
+        <!-- chartjs init -->
+        <script src="assets/js/pages/chartjs.init.js"></script> 
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Responsive Tables"})
+
+    <!-- Responsive Table css -->
+        <link href="assets/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css" />
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Tables", "title": "Responsive Tables"})
+                
+
+                <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">Example</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-rep-plugin">
+                                    <div class="table-responsive mb-0" data-pattern="priority-columns">
+                                        <table id="tech-companies-1" class="table table-striped w-full text-left">
+                                            <thead class="flex">
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-gray-100">
+                                                    <th class="p-3">Company</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td class="p-3">597.74</td>
+                                                    <td class="p-3">12:12PM</td>
+                                                    <td class="p-3">14.81 (2.54%)</td>
+                                                    <td class="p-3">582.93</td>
+                                                    <td class="p-3">597.95</td>
+                                                    <td class="p-3">597.73 x 100</td>
+                                                    <td class="p-3">597.91 x 300</td>
+                                                    <td class="p-3">731.10</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td class="p-3">378.94</td>
+                                                    <td class="p-3">12:22PM</td>
+                                                    <td class="p-3">5.74 (1.54%)</td>
+                                                    <td class="p-3">373.20</td>
+                                                    <td class="p-3">381.02</td>
+                                                    <td class="p-3">378.92 x 300</td>
+                                                    <td class="p-3">378.99 x 100</td>
+                                                    <td class="p-3">505.94</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td class="p-3">191.55</td>
+                                                    <td class="p-3">12:23PM</td>
+                                                    <td class="p-3">3.16 (1.68%)</td>
+                                                    <td class="p-3">188.39</td>
+                                                    <td class="p-3">194.99</td>
+                                                    <td class="p-3">191.52 x 300</td>
+                                                    <td class="p-3">191.58 x 100</td>
+                                                    <td class="p-3">240.32</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">ORCL <span class="co-name">Oracle Corporation</span></th>
+                                                    <td class="p-3">31.15</td>
+                                                    <td class="p-3">12:44PM</td>
+                                                    <td class="p-3">1.41 (4.72%)</td>
+                                                    <td class="p-3">29.74</td>
+                                                    <td class="p-3">30.67</td>
+                                                    <td class="p-3">31.14 x 6500</td>
+                                                    <td class="p-3">31.15 x 3200</td>
+                                                    <td class="p-3">36.11</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">MSFT <span class="co-name">Microsoft Corporation</span></th>
+                                                    <td class="p-3">25.50</td>
+                                                    <td class="p-3">12:27PM</td>
+                                                    <td class="p-3">0.66 (2.67%)</td>
+                                                    <td class="p-3">24.84</td>
+                                                    <td class="p-3">25.37</td>
+                                                    <td class="p-3">25.50 x 71100</td>
+                                                    <td class="p-3">25.51 x 17800</td>
+                                                    <td class="p-3">31.50</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">CSCO <span class="co-name">Cisco Systems, Inc.</span></th>
+                                                    <td class="p-3">18.65</td>
+                                                    <td class="p-3">12:45PM</td>
+                                                    <td class="p-3">0.97 (5.49%)</td>
+                                                    <td class="p-3">17.68</td>
+                                                    <td class="p-3">18.23</td>
+                                                    <td class="p-3">18.65 x 10300</td>
+                                                    <td class="p-3">18.66 x 24000</td>
+                                                    <td class="p-3">21.12</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">YHOO <span class="co-name">Yahoo! Inc.</span></th>
+                                                    <td class="p-3">15.81</td>
+                                                    <td class="p-3">12:25PM</td>
+                                                    <td class="p-3">0.11 (0.67%)</td>
+                                                    <td class="p-3">15.70</td>
+                                                    <td class="p-3">15.94</td>
+                                                    <td class="p-3">15.79 x 6100</td>
+                                                    <td class="p-3">15.80 x 17000</td>
+                                                    <td class="p-3">18.16</td>
+                                                </tr>
+                                                <!-- Repeat -->
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td class="p-3">597.74</td>
+                                                    <td class="p-3">12:12PM</td>
+                                                    <td class="p-3">14.81 (2.54%)</td>
+                                                    <td class="p-3">582.93</td>
+                                                    <td class="p-3">597.95</td>
+                                                    <td class="p-3">597.73 x 100</td>
+                                                    <td class="p-3">597.91 x 300</td>
+                                                    <td class="p-3">731.10</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td class="p-3">378.94</td>
+                                                    <td class="p-3">12:22PM</td>
+                                                    <td class="p-3">5.74 (1.54%)</td>
+                                                    <td class="p-3">373.20</td>
+                                                    <td class="p-3">381.02</td>
+                                                    <td class="p-3">378.92 x 300</td>
+                                                    <td class="p-3">378.99 x 100</td>
+                                                    <td class="p-3">505.94</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td class="p-3">191.55</td>
+                                                    <td class="p-3">12:23PM</td>
+                                                    <td class="p-3">3.16 (1.68%)</td>
+                                                    <td class="p-3">188.39</td>
+                                                    <td class="p-3">194.99</td>
+                                                    <td class="p-3">191.52 x 300</td>
+                                                    <td class="p-3">191.58 x 100</td>
+                                                    <td class="p-3">240.32</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">ORCL <span class="co-name">Oracle Corporation</span></th>
+                                                    <td class="p-3">31.15</td>
+                                                    <td class="p-3">12:44PM</td>
+                                                    <td class="p-3">1.41 (4.72%)</td>
+                                                    <td class="p-3">29.74</td>
+                                                    <td class="p-3">30.67</td>
+                                                    <td class="p-3">31.14 x 6500</td>
+                                                    <td class="p-3">31.15 x 3200</td>
+                                                    <td class="p-3">36.11</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">MSFT <span class="co-name">Microsoft Corporation</span></th>
+                                                    <td class="p-3">25.50</td>
+                                                    <td class="p-3">12:27PM</td>
+                                                    <td class="p-3">0.66 (2.67%)</td>
+                                                    <td class="p-3">24.84</td>
+                                                    <td class="p-3">25.37</td>
+                                                    <td class="p-3">25.50 x 71100</td>
+                                                    <td class="p-3">25.51 x 17800</td>
+                                                    <td class="p-3">31.50</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">CSCO <span class="co-name">Cisco Systems, Inc.</span></th>
+                                                    <td class="p-3">18.65</td>
+                                                    <td class="p-3">12:45PM</td>
+                                                    <td class="p-3">0.97 (5.49%)</td>
+                                                    <td class="p-3">17.68</td>
+                                                    <td class="p-3">18.23</td>
+                                                    <td class="p-3">18.65 x 10300</td>
+                                                    <td class="p-3">18.66 x 24000</td>
+                                                    <td class="p-3">21.12</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">YHOO <span class="co-name">Yahoo! Inc.</span></th>
+                                                    <td class="p-3">15.81</td>
+                                                    <td class="p-3">12:25PM</td>
+                                                    <td class="p-3">0.11 (0.67%)</td>
+                                                    <td class="p-3">15.70</td>
+                                                    <td class="p-3">15.94</td>
+                                                    <td class="p-3">15.79 x 6100</td>
+                                                    <td class="p-3">15.80 x 17000</td>
+                                                    <td class="p-3">18.16</td>
+                                                </tr>
+                                                <!-- Repeat -->
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td class="p-3">597.74</td>
+                                                    <td class="p-3">12:12PM</td>
+                                                    <td class="p-3">14.81 (2.54%)</td>
+                                                    <td class="p-3">582.93</td>
+                                                    <td class="p-3">597.95</td>
+                                                    <td class="p-3">597.73 x 100</td>
+                                                    <td class="p-3">597.91 x 300</td>
+                                                    <td class="p-3">731.10</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td class="p-3">378.94</td>
+                                                    <td class="p-3">12:22PM</td>
+                                                    <td class="p-3">5.74 (1.54%)</td>
+                                                    <td class="p-3">373.20</td>
+                                                    <td class="p-3">381.02</td>
+                                                    <td class="p-3">378.92 x 300</td>
+                                                    <td class="p-3">378.99 x 100</td>
+                                                    <td class="p-3">505.94</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td class="p-3">191.55</td>
+                                                    <td class="p-3">12:23PM</td>
+                                                    <td class="p-3">3.16 (1.68%)</td>
+                                                    <td class="p-3">188.39</td>
+                                                    <td class="p-3">194.99</td>
+                                                    <td class="p-3">191.52 x 300</td>
+                                                    <td class="p-3">191.58 x 100</td>
+                                                    <td class="p-3">240.32</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">ORCL <span class="co-name">Oracle Corporation</span></th>
+                                                    <td class="p-3">31.15</td>
+                                                    <td class="p-3">12:44PM</td>
+                                                    <td class="p-3">1.41 (4.72%)</td>
+                                                    <td class="p-3">29.74</td>
+                                                    <td class="p-3">30.67</td>
+                                                    <td class="p-3">31.14 x 6500</td>
+                                                    <td class="p-3">31.15 x 3200</td>
+                                                    <td class="p-3">36.11</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">MSFT <span class="co-name">Microsoft Corporation</span></th>
+                                                    <td class="p-3">25.50</td>
+                                                    <td class="p-3">12:27PM</td>
+                                                    <td class="p-3">0.66 (2.67%)</td>
+                                                    <td class="p-3">24.84</td>
+                                                    <td class="p-3">25.37</td>
+                                                    <td class="p-3">25.50 x 71100</td>
+                                                    <td class="p-3">25.51 x 17800</td>
+                                                    <td class="p-3">31.50</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">CSCO <span class="co-name">Cisco Systems, Inc.</span></th>
+                                                    <td class="p-3">18.65</td>
+                                                    <td class="p-3">12:45PM</td>
+                                                    <td class="p-3">0.97 (5.49%)</td>
+                                                    <td class="p-3">17.68</td>
+                                                    <td class="p-3">18.23</td>
+                                                    <td class="p-3">18.65 x 10300</td>
+                                                    <td class="p-3">18.66 x 24000</td>
+                                                    <td class="p-3">21.12</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">YHOO <span class="co-name">Yahoo! Inc.</span></th>
+                                                    <td class="p-3">15.81</td>
+                                                    <td class="p-3">12:25PM</td>
+                                                    <td class="p-3">0.11 (0.67%)</td>
+                                                    <td class="p-3">15.70</td>
+                                                    <td class="p-3">15.94</td>
+                                                    <td class="p-3">15.79 x 6100</td>
+                                                    <td class="p-3">15.80 x 17000</td>
+                                                    <td class="p-3">18.16</td>
+                                                </tr>
+                                                <!-- Repeat -->
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td class="p-3">597.74</td>
+                                                    <td class="p-3">12:12PM</td>
+                                                    <td class="p-3">14.81 (2.54%)</td>
+                                                    <td class="p-3">582.93</td>
+                                                    <td class="p-3">597.95</td>
+                                                    <td class="p-3">597.73 x 100</td>
+                                                    <td class="p-3">597.91 x 300</td>
+                                                    <td class="p-3">731.10</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td class="p-3">378.94</td>
+                                                    <td class="p-3">12:22PM</td>
+                                                    <td class="p-3">5.74 (1.54%)</td>
+                                                    <td class="p-3">373.20</td>
+                                                    <td class="p-3">381.02</td>
+                                                    <td class="p-3">378.92 x 300</td>
+                                                    <td class="p-3">378.99 x 100</td>
+                                                    <td class="p-3">505.94</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td class="p-3">191.55</td>
+                                                    <td class="p-3">12:23PM</td>
+                                                    <td class="p-3">3.16 (1.68%)</td>
+                                                    <td class="p-3">188.39</td>
+                                                    <td class="p-3">194.99</td>
+                                                    <td class="p-3">191.52 x 300</td>
+                                                    <td class="p-3">191.58 x 100</td>
+                                                    <td class="p-3">240.32</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">ORCL <span class="co-name">Oracle Corporation</span></th>
+                                                    <td class="p-3">31.15</td>
+                                                    <td class="p-3">12:44PM</td>
+                                                    <td class="p-3">1.41 (4.72%)</td>
+                                                    <td class="p-3">29.74</td>
+                                                    <td class="p-3">30.67</td>
+                                                    <td class="p-3">31.14 x 6500</td>
+                                                    <td class="p-3">31.15 x 3200</td>
+                                                    <td class="p-3">36.11</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">MSFT <span class="co-name">Microsoft Corporation</span></th>
+                                                    <td class="p-3">25.50</td>
+                                                    <td class="p-3">12:27PM</td>
+                                                    <td class="p-3">0.66 (2.67%)</td>
+                                                    <td class="p-3">24.84</td>
+                                                    <td class="p-3">25.37</td>
+                                                    <td class="p-3">25.50 x 71100</td>
+                                                    <td class="p-3">25.51 x 17800</td>
+                                                    <td class="p-3">31.50</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">CSCO <span class="co-name">Cisco Systems, Inc.</span></th>
+                                                    <td class="p-3">18.65</td>
+                                                    <td class="p-3">12:45PM</td>
+                                                    <td class="p-3">0.97 (5.49%)</td>
+                                                    <td class="p-3">17.68</td>
+                                                    <td class="p-3">18.23</td>
+                                                    <td class="p-3">18.65 x 10300</td>
+                                                    <td class="p-3">18.66 x 24000</td>
+                                                    <td class="p-3">21.12</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">YHOO <span class="co-name">Yahoo! Inc.</span></th>
+                                                    <td class="p-3">15.81</td>
+                                                    <td class="p-3">12:25PM</td>
+                                                    <td class="p-3">0.11 (0.67%)</td>
+                                                    <td class="p-3">15.70</td>
+                                                    <td class="p-3">15.94</td>
+                                                    <td class="p-3">15.79 x 6100</td>
+                                                    <td class="p-3">15.80 x 17000</td>
+                                                    <td class="p-3">18.16</td>
+                                                </tr>
+                                                <!-- Repeat -->
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">GOOG <span class="co-name">Google Inc.</span></th>
+                                                    <td class="p-3">597.74</td>
+                                                    <td class="p-3">12:12PM</td>
+                                                    <td class="p-3">14.81 (2.54%)</td>
+                                                    <td class="p-3">582.93</td>
+                                                    <td class="p-3">597.95</td>
+                                                    <td class="p-3">597.73 x 100</td>
+                                                    <td class="p-3">597.91 x 300</td>
+                                                    <td class="p-3">731.10</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">AAPL <span class="co-name">Apple Inc.</span></th>
+                                                    <td class="p-3">378.94</td>
+                                                    <td class="p-3">12:22PM</td>
+                                                    <td class="p-3">5.74 (1.54%)</td>
+                                                    <td class="p-3">373.20</td>
+                                                    <td class="p-3">381.02</td>
+                                                    <td class="p-3">378.92 x 300</td>
+                                                    <td class="p-3">378.99 x 100</td>
+                                                    <td class="p-3">505.94</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">AMZN <span class="co-name">Amazon.com Inc.</span></th>
+                                                    <td class="p-3">191.55</td>
+                                                    <td class="p-3">12:23PM</td>
+                                                    <td class="p-3">3.16 (1.68%)</td>
+                                                    <td class="p-3">188.39</td>
+                                                    <td class="p-3">194.99</td>
+                                                    <td class="p-3">191.52 x 300</td>
+                                                    <td class="p-3">191.58 x 100</td>
+                                                    <td class="p-3">240.32</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">ORCL <span class="co-name">Oracle Corporation</span></th>
+                                                    <td class="p-3">31.15</td>
+                                                    <td class="p-3">12:44PM</td>
+                                                    <td class="p-3">1.41 (4.72%)</td>
+                                                    <td class="p-3">29.74</td>
+                                                    <td class="p-3">30.67</td>
+                                                    <td class="p-3">31.14 x 6500</td>
+                                                    <td class="p-3">31.15 x 3200</td>
+                                                    <td class="p-3">36.11</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">MSFT <span class="co-name">Microsoft Corporation</span></th>
+                                                    <td class="p-3">25.50</td>
+                                                    <td class="p-3">12:27PM</td>
+                                                    <td class="p-3">0.66 (2.67%)</td>
+                                                    <td class="p-3">24.84</td>
+                                                    <td class="p-3">25.37</td>
+                                                    <td class="p-3">25.50 x 71100</td>
+                                                    <td class="p-3">25.51 x 17800</td>
+                                                    <td class="p-3">31.50</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 dark:text-zinc-100">
+                                                    <th class="p-3">CSCO <span class="co-name">Cisco Systems, Inc.</span></th>
+                                                    <td class="p-3">18.65</td>
+                                                    <td class="p-3">12:45PM</td>
+                                                    <td class="p-3">0.97 (5.49%)</td>
+                                                    <td class="p-3">17.68</td>
+                                                    <td class="p-3">18.23</td>
+                                                    <td class="p-3">18.65 x 10300</td>
+                                                    <td class="p-3">18.66 x 24000</td>
+                                                    <td class="p-3">21.12</td>
+                                                </tr>
+                                                <tr class="border-b border-gray-50 dark:border-zinc-600 bg-gray-50/30 dark:bg-zinc-700/50 dark:text-zinc-100">
+                                                    <th class="p-3">YHOO <span class="co-name">Yahoo! Inc.</span></th>
+                                                    <td class="p-3">15.81</td>
+                                                    <td class="p-3">12:25PM</td>
+                                                    <td class="p-3">0.11 (0.67%)</td>
+                                                    <td class="p-3">15.70</td>
+                                                    <td class="p-3">15.94</td>
+                                                    <td class="p-3">15.79 x 6100</td>
+                                                    <td class="p-3">15.80 x 17000</td>
+                                                    <td class="p-3">18.16</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+    
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+     <!-- Responsive Table js -->
+        <script src="assets/libs/admin-resources/rwd-table/rwd-table.min.js"></script>
+
+        <!-- Init js -->
+        <script src="assets/js/pages/table-responsive.init.js"></script>
+    
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

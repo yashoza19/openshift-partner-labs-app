@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Range Slider"})
+
+    <link rel="stylesheet" href="assets/libs/nouislider/nouislider.min.css">
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+        <div class="main-content">
+            <div class="page-content dark:bg-zinc-700">
+                
+                <div class="container-fluid px-[0.625rem]">
+
+                    @@include('./partials/page-title.html', {"pagetitle": "Extended", "title": "Range Slider"})
+        
+                    <div class="grid grid-cols-1">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100">noUiSlider</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Basic Example</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div id="slider"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Colorpicker</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div class="sliders" id="red"></div>
+                                            <div class="sliders" id="green"></div>
+                                            <div class="sliders" id="blue"></div>
+
+                                            <div id="result"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Using HTML5 input elements</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div id="html5"></div>
+                                            <div class="flex flex-wrap">
+                                                <select id="input-select" class="select-number border-gray-100 rounded dark:bg-zinc-700 dark:text-gray-100 dark:border-zinc-600"></select>
+                                                <input type="number" class="border-gray-100 rounded dark:bg-zinc-700 dark:text-gray-100 dark:border-zinc-600" min="-20" max="40" step="1" id="input-number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Non linear slider</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div id="nonlinear"></div>
+                                            <span class="example-val text-gray-600 dark:text-zinc-100" id="lower-value"></span>
+                                            <span class="example-val text-gray-600 dark:text-zinc-100" id="upper-value"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Locking sliders together</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div class="slider" id="slider1"></div>
+                                            <span class="example-val text-gray-600 dark:text-zinc-100 mt-2" id="slider1-span"></span>
+
+                                            <div class="slider" id="slider2"></div>
+                                            <span class="example-val text-gray-600 dark:text-zinc-100 mt-2" id="slider2-span"></span>
+
+                                            <button id="lockbutton" class="btn bg-violet-500 border-transparent text-white" style="float: right; margin: 20px 0 0;">Lock</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Only showing tooltips when sliding handle</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div class="slider" id="slider-hide"></div>    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Colored Connect Elements</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div class="slider" id="slider-color"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Creating a toggle</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div id="slider-toggle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 gap-5 mb-12">
+                                    <div class="col-span-12 lg:col-span-3">
+                                        <h5 class="text-gray-700 dark:text-gray-100 text-sm">Soft limits</h5>
+                                    </div>
+                                    <div class="col-span-12 lg:col-span-9">
+                                        <div>
+                                            <div id="soft"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @@include('./partials/footer.html')
+                </div>
+            </div>
+        </div>
+
+        @@include('./partials/rtl-ltr.html')
+
+        <script src="assets/libs/nouislider/nouislider.min.js"></script>
+        <script src="assets/libs/wnumb/wNumb.min.js"></script>
+
+        <!-- lightbox init -->
+        <script src="assets/js/pages/rangeslider.init.js"></script>
+
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

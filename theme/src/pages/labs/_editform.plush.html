@@ -1,0 +1,170 @@
+    <div class="gap-6">
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Request Details</h4>
+            </div>
+            <div class="col-span-6">
+                <label for="description">Description</label>
+                <textarea class="block w-full h-48" id="description" name="description"
+                          placeholder="<%= lab.Description %>"><%= lab.Description %></textarea>
+            </div>
+            <div class="col-span-6">
+                <label for="notes">Notes</label>
+                <textarea class="block w-full h-48" id="notes" name="notes"
+                          placeholder="<%= lab.Notes %>"><%= lab.Notes %></textarea>
+            </div>
+        </div>
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Contact Details</h4>
+            </div>
+            <div class="col-span-6"></div>
+            <div class="col-span-12">
+                <h6>Primary Contact</h6>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_first">First Name</label>
+                <input class="block w-full" type="text" id="primary_first" name="primary_first" required
+                       placeholder="<%= lab.PrimaryFirst %>" value="<%= lab.PrimaryFirst %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_last">Last Name</label>
+                <input class="block w-full" type="text" id="primary_last" name="primary_last" required
+                       placeholder="<%= lab.PrimaryLast %>" value="<%= lab.PrimaryLast %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="primary_email">Email</label>
+                <input class="block w-full" type="text" id="primary_email" name="primary_email" required
+                       placeholder="<%= lab.PrimaryEmail %>" value="<%= lab.PrimaryEmail %>"/>
+            </div>
+            <div class="col-span-12">
+                <h6>Secondary Contact</h6>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_first">First Name</label>
+                <input class="block w-full" type="text" id="secondary_first" name="secondary_first" required
+                       placeholder="<%= lab.SecondaryFirst %>" value="<%= lab.SecondaryFirst %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_last">Last Name</label>
+                <input class="block w-full" type="text" id="secondary_last" name="secondary_last" required
+                       placeholder="<%= lab.SecondaryLast %>" value="<%= lab.SecondaryLast %>"/>
+            </div>
+            <div class="col-span-6">
+                <label for="secondary_email">Email</label>
+                <input class="block w-full" type="text" id="secondary_email" name="secondary_email" required
+                       placeholder="<%= lab.SecondaryEmail %>" value="<%= lab.SecondaryEmail %>"/>
+            </div>
+        </div>
+        <div class="card grid grid-cols-12 gap-6 p-6">
+            <div class="col-span-12">
+                <h4>Cluster Specifications</h4>
+            </div>
+            <div class="col-span-3">
+                <label for="cluster_size">Cluster Size</label>
+                <select class="block w-full" id="cluster_size" name="cluster_size" required>
+                    <%= if (lab.ClusterSize == "small") { %>
+                    <option selected value="small">Small</option>
+                    <% } else { %>
+                    <option value="small">Small</option>
+                    <% } %>
+                    <%= if (lab.ClusterSize == "medium") { %>
+                    <option selected value="medium">Medium</option>
+                    <% } else { %>
+                    <option value="medium">Medium</option>
+                    <% } %>
+                    <%= if (lab.ClusterSize == "large") { %>
+                    <option selected value="large">Large</option>
+                    <% } else { %>
+                    <option value="large">Large</option>
+                    <% } %>
+                    <%= if (lab.ClusterSize == "xlarge") { %>
+                    <option selected value="xlarge">X-Large</option>
+                    <% } else { %>
+                    <option value="xlarge">X-Large</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="openshift_version">OpenShift Version</label>
+                <select <%= if (lab.State != "pending") { %>disabled<% } %> class="block w-full" id="openshift_version" name="openshift_version" required>
+                    <option selected value="<%= stripocp(lab.OpenShiftVersion) %>"><%= stripocp(lab.OpenShiftVersion) %></option>
+                    <%= for (image) in releaseimages { %>
+                    <option value="<%= image.String() %>"><%= image.String() %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="cloud_provider">Cloud Provider</label>
+                <select class="block w-full" id="cloud_provider" name="cloud_provider" required>
+                    <option value="aws">AWS</option>
+                    <option disabled value="ibm">IBM Cloud</option>
+                    <option disabled value="gcp">Google Cloud</option>
+                    <option disabled value="azure">Azure</option>
+                </select>
+            </div>
+            <div class="col-span-3">
+                <label for="region">Region</label>
+                <select class="block w-full" id="region" name="region" required>
+                    <%= if (lab.Region == "na") { %>
+                    <option selected value="na">NA</option>
+                    <% } else { %>
+                    <option value="na">NA</option>
+                    <% } %>
+                    <%= if (lab.Region == "emea") { %>
+                    <option selected value="emea">EMEA</option>
+                    <% } else { %>
+                    <option value="latam">LATAM</option>
+                    <% } %>
+                    <%= if (lab.Region == "apac") { %>
+                    <option selected value="apac">APAC</option>
+                    <% } else { %>
+                    <option value="emea">EMEA</option>
+                    <% } %>
+                    <%= if (lab.Region == "latam") { %>
+                    <option selected value="latam">LATAM</option>
+                    <% } else { %>
+                    <option value="apac">APAC</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-span-6">
+                <label for="lease_time">Lease Time</label>
+                <select class="block w-full" id="lease_time" name="lease_time" required>
+                    <%= if (lab.LeaseTime == "1d") { %>
+                    <option selected value="1d">One Day</option>
+                    <% } else { %>
+                    <option value="1d">One Day</option>
+                    <% } %>
+                    <%= if (lab.LeaseTime == "1w") { %>
+                    <option selected value="1w">One Week</option>
+                    <% } else { %>
+                    <option value="1w">One Week</option>
+                    <% } %>
+                    <%= if (lab.LeaseTime == "2w") { %>
+                    <option selected value="2w">Two Weeks</option>
+                    <% } else { %>
+                    <option value="2w">Two Weeks</option>
+                    <% } %>
+                    <%= if (lab.LeaseTime == "1m") { %>
+                    <option selected value="1m">One Month</option>
+                    <% } else { %>
+                    <option value="1m">One Month</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="col-span-6">
+                <label for="start_date">Start Date</label>
+                <input class="w-full placeholder:text-sm focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:border-zinc-600 dark:text-zinc-100"
+                       type="date" value="<%= setstartdate(lab.StartDate) %>" id="start_date" name="start_date">
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-cols-12 gap-6 p-6 justify-end">
+        <a href="<%= labsPath() %>" class="btn text-white bg-yellow-500 border-yellow-500 hover:bg-yellow-600 hover:border-yellow-600 focus:bg-yellow-600 focus:border-yellow-600 focus:ring focus:ring-yellow-500/30 active:bg-yellow-600 active:border-yellow-600">
+            Cancel
+        </a>
+        <button role="submit" class="btn text-white bg-green-500 border-green-500 hover:bg-green-600 hover:border-green-600 focus:bg-green-600 focus:border-green-600 focus:ring focus:ring-green-500/30 active:bg-green-600 active:border-green-600">
+            Save
+        </button>
+    </div>

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"redhat_openshift_partner_labs_app/actions"
+	"openshift-partner-labs-app/actions"
 )
 
 // main is the starting point for your Buffalo application.

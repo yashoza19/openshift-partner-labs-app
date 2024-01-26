@@ -1,7 +1,7 @@
 package grifts
 
 import (
-	"redhat_openshift_partner_labs_app/actions"
+	"openshift-partner-labs-app/actions"
 
 	"github.com/gobuffalo/buffalo"
 )

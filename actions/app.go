@@ -1,12 +1,14 @@
 package actions
 
 import (
+	"github.com/gorilla/sessions"
+	"github.com/markbates/goth/gothic"
 	"net/http"
 	"sync"
 
-	"redhat_openshift_partner_labs_app/locales"
-	"redhat_openshift_partner_labs_app/models"
-	"redhat_openshift_partner_labs_app/public"
+	"openshift-partner-labs-app/locales"
+	"openshift-partner-labs-app/models"
+	"openshift-partner-labs-app/public"
 
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo-pop/v3/pop/popmw"
@@ -26,6 +28,7 @@ var (
 	app     *buffalo.App
 	appOnce sync.Once
 	T       *i18n.Translator
+	err     error
 )
 
 // App is where all routes and middleware for buffalo
@@ -43,9 +46,27 @@ var (
 // declared after it to never be called.
 func App() *buffalo.App {
 	appOnce.Do(func() {
+		appSession := sessions.NewFilesystemStore("/tmp", []byte(envy.Get("SESSION_SECRET", "secret")))
+		appSession.Options.SameSite = http.SameSiteLaxMode
+
 		app = buffalo.New(buffalo.Options{
-			Env:         ENV,
-			SessionName: "_redhat_openshift_partner_labs_app_session",
+			Env:          ENV,
+			SessionName:  "_openshift_partner_labs_app_session",
+			SessionStore: appSession,
+			/*Worker: gwa.New(gwa.Options{
+				Pool: &redis.Pool{
+					MaxIdle:   5,
+					MaxActive: 5,
+					Wait:      true,
+					Dial: func() (redis.Conn, error) {
+						return redis.Dial("tcp", envy.Get("REDIS_URL", ":6379"),
+							redis.DialUsername(envy.Get("REDIS_USERNAME", "")),
+							redis.DialPassword(envy.Get("REDIS_PASSWORD", "")))
+					},
+				},
+				Name:           "openshift-partner-labs-app",
+				MaxConcurrency: 25,
+			}),*/
 		})
 
 		// Automatically redirect to SSL
@@ -56,7 +77,8 @@ func App() *buffalo.App {
 
 		// Protect against CSRF attacks. https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
 		// Remove to disable this.
-		app.Use(csrf.New)
+		_csrf := csrf.New
+		app.Use(_csrf)
 
 		// Wraps each request in a transaction.
 		//   c.Value("tx").(*pop.Connection)
@@ -65,7 +87,32 @@ func App() *buffalo.App {
 		// Setup and use translations:
 		app.Use(translations())
 
+		app.Use(Authorized)
+		app.Use(SetUserData)
+
 		app.GET("/", HomeHandler)
+
+		auth := app.Group("/auth")
+		AuthLogin := buffalo.WrapHandlerFunc(gothic.BeginAuthHandler)
+		auth.GET("/{provider}", AuthLogin)
+		auth.GET("/{provider}/callback", AuthCallback)
+		auth.GET("/{provider}/logout", AuthDestroy)
+		auth.Middleware.Skip(Authorized, AuthCallback, AuthLogin)
+
+		wrkflw := app.Group("/workflows")
+		wrkflw.Middleware.Skip(_csrf, AuditWorkflow)
+		wrkflw.Middleware.Skip(Authorized, AuditWorkflow)
+		wrkflw.POST("/audit", AuditWorkflow)
+
+		app.Resource("/labs", LabsResource{})
+		app.POST("/labs/approve/{lab_id}", LabApprove).Name("labApprove")
+		app.POST("/labs/deny/{lab_id}", LabDeny).Name("labDeny")
+		app.POST("/labs/extension", LabExtension)
+		app.POST("/labs/{lab_id}/notes", CreateLabNote)
+		//app.GET("/labs/extensions/{lab_id}", GetLabExtensions)
+
+		app.GET("/login", LoginHandler)
+		app.Middleware.Skip(Authorized, LoginHandler)
 
 		app.ServeFiles("/", http.FS(public.FS())) // serve files from the public directory
 	})

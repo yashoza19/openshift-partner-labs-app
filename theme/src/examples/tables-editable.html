@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Table Edit"})
+
+    <!-- Responsive Table css -->
+        <link href="assets/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css" />
+
+    @@include('./partials/head-css.html')
+</head>
+    
+@@include('./partials/body.html')
+
+    <!-- leftbar-tab-menu -->
+    @@include('./partials/topbar.html')
+
+    @@include('./partials/sidebar.html')
+
+    <div class="main-content">
+        <div class="page-content dark:bg-zinc-700 h-screen">
+            
+            <div class="container-fluid px-[0.625rem]">
+
+                @@include('./partials/page-title.html', {"pagetitle": "Tables", "title": "Table Edit"})
+                
+
+                <div class="grid grid-cols-12 gap-5">
+                    <div class="col-span-12">
+                        <div class="card dark:bg-zinc-800 dark:border-zinc-600">
+                            <div class="card-body pb-0">
+                                <h6 class="mb-1 text-15 text-gray-700 dark:text-gray-100 dark:border-zinc-600">Table Edit</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-editable table-nowrap align-middle table-edits w-full text-left">
+                                        <thead>
+                                            <tr class="border-b border-gray-50 text-gray-700 dark:text-gray-100 dark:border-zinc-600">
+                                                <th class="p-3">ID</th>
+                                                <th class="p-3">Name</th>
+                                                <th class="p-3">Age</th>
+                                                <th class="p-3">Gender</th>
+                                                <th class="p-3">Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-gray-600">
+                                            <tr class="border-b border-gray-50 dark:border-zinc-600" data-id="1">
+                                                <td class="p-3 dark:text-zinc-100" data-field="id" style="width: 80px">1</td>
+                                                <td class="p-3 dark:text-zinc-100" data-field="name">David McHenry</td>
+                                                <td class="p-3 dark:text-zinc-100" data-field="age">24</td>
+                                                <td class="pl-3 dark:text-zinc-100" data-field="gender">Male</td>
+                                                <td class="p-3 dark:text-zinc-100" style="width: 100px">
+                                                    <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-gray-50 dark:border-zinc-600" data-id="2">
+                                                <td class="p-3 dark:text-zinc-100" data-field="id">2</td>
+                                                <td class="p-3 dark:text-zinc-100" data-field="name">Frank Kirk</td>
+                                                <td class="p-3 dark:text-zinc-100" data-field="age">22</td>
+                                                <td class="p-3 dark:text-zinc-100" data-field="gender">Male</td>
+                                                <td class="p-3 dark:text-zinc-100">
+                                                    <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-gray-50 dark:border-zinc-600" data-id="3">
+                                                <td  class="p-3 dark:text-zinc-100" data-field="id">3</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="name">Rafael Morales</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="age">26</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="gender">Male</td>
+                                                <td  class="p-3 dark:text-zinc-100">
+                                                    <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-gray-50 dark:border-zinc-600" data-id="4">
+                                                <td  class="p-3 dark:text-zinc-100" data-field="id">4</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="name">Mark Ellison</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="age">32</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="gender">Male</td>
+                                                <td  class="p-3 dark:text-zinc-100">
+                                                    <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="border-b border-gray-50 dark:border-zinc-600" data-id="5">
+                                                <td  class="p-3 dark:text-zinc-100" data-field="id">5</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="name">Minnie Walter</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="age">27</td>
+                                                <td  class="p-3 dark:text-zinc-100" data-field="gender">Female</td>
+                                                <td  class="p-3 dark:text-zinc-100">
+                                                    <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                @@include('./partials/footer.html')
+            </div>
+        </div>
+    </div>
+
+    @@include('./partials/rtl-ltr.html')
+    
+    @@include('./partials/vendor-scripts.html')
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+     <!-- Table Editable plugin -->
+         <script src="assets/libs/table-edits/build/table-edits.min.js"></script>
+
+        <script src="assets/js/pages/table-editable.int.js"></script> 
+    
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

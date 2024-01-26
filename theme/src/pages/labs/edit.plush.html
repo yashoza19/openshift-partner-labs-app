@@ -1,0 +1,10 @@
+<% let title = lab.GeneratedName %>
+
+<%= partial("partials/page-title.html", {pagetitle: "Requests", title: title}) %>
+<%= if (errors) { %>
+<%= partial("partials/errors.html") %>
+<% } %>
+
+<%= formFor(lab, {action: labPath({ lab_id: lab.ID }), method: "PUT"}) { %>
+  <%= partial("labs/editform.html") %>
+<% } %>

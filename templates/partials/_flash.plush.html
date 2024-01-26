@@ -1,0 +1,24 @@
+<div id="htmx-flash"></div>
+<div id="flash">
+  <%= for (k, messages) in flash { %>
+    <%= if (k == "danger") { %>
+      <%= for (msg) in messages { %>
+        <div id="danger-flash" class="px-5 py-2.5 mb-5 flex items-center bg-red-50 border-l-4 border-red-500 rounded rounded-l-none alert-dismissible">
+          <i class="mdi mdi-block-helper ltr:mr-2 rtl:ml-2 align-middle text-red-700 text-lg"></i>
+          <p class="text-red-700"><%= msg %></p>
+          <button class="alert-close ltr:ml-auto rtl:mr-auto text-red-400 text-lg"><i class="mdi mdi-close"></i></button>
+        </div>
+      <% } %>
+    <% } %>
+
+    <%= if (k == "success") { %>
+      <%= for (msg) in messages { %>
+        <div id="success-flash" class="px-5 py-2.5 mb-5 flex items-center bg-green-50 border-l-4 border-green-500 rounded rounded-l-none alert-dismissible">
+          <i class="mdi mdi-check-all ltr:mr-2 rtl:ml-2 align-middle text-green-700 text-lg"></i>
+          <p class="text-green-700"><%= msg %></p>
+          <button class="alert-close ltr:ml-auto rtl:mr-auto text-green-400 text-lg"><i class="mdi mdi-close"></i></button>
+        </divi>
+      <% } %>
+    <% } %>
+  <% } %>
+</div>

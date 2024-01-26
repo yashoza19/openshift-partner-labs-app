@@ -1,0 +1,256 @@
+<% let title = lab.GeneratedName %>
+
+<%= partial("partials/page-title.html", {pagetitle: "Requests", title: title}) %>
+
+<div class="col-span-12 lg:col-span-6">
+  <div class="dark:bg-zinc-800 dark:border-zinc-600">
+    <div>
+      <div class="relative z-50 hidden modal" id="add-note-modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 z-50 overflow-y-auto">
+          <div class="absolute inset-0 transition-opacity bg-black bg-opacity-50 modal-overlay"></div>
+          <div class="p-4 mx-auto animate-translate sm:max-w-lg">
+            <div class="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl dark:bg-zinc-600">
+              <div class="bg-white dark:bg-zinc-700">
+                <button type="button" class="absolute top-3 right-2.5 text-gray-400 border-transparent hover:bg-gray-50/50 hover:text-gray-900 dark:text-gray-100 rounded-lg text-sm px-2 py-1 ltr:ml-auto rtl:mr-auto inline-flex items-center dark:hover:bg-zinc-600" data-tw-dismiss="modal">
+                  <i class="text-xl text-gray-500 mdi mdi-close dark:text-zinc-100/60"></i>
+                </button>
+                <div class="p-5">
+                  <h3 class="mb-4 text-xl font-medium text-gray-700 dark:text-gray-100">Add Note</h3>
+                  <form class="space-y-4" hx-post="/labs/<%= lab.ID %>/notes" hx-target="#htmx-flash" hx-on::after-request="if(event.detail.successful) this.reset()">
+                    <input type="hidden" name="authenticity_token" value="<%= authenticity_token %>">
+                    <input type="hidden" name="lab_id" value="<%= lab.ID %>">
+                    <input type="hidden" name="user_id" value="<%= current_user.UserID %>">
+                    <div>
+                      <label for="note"></label>
+                      <textarea rows="7" name="note" id="note" class="bg-gray-800/5 border border-gray-100 text-gray-900 dark:text-gray-100 text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-zinc-700/50 dark:border-zinc-600 dark:placeholder-gray-400 dark:placeholder:text-zinc-100/60 dark:text-" required></textarea>
+                    </div>
+                    <div class="px-4 py-3 mb-2 sm:flex ltr:sm:flex-row-reverse sm:px-6">
+                      <button type="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-red-500 border border-transparent rounded-md shadow-sm btn hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" data-tw-dismiss="modal">Submit</button>
+                      <button type="button" class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm btn dark:text-gray-100 hover:bg-gray-50/50 focus:outline-none focus:ring-2 focus:ring-gray-500/30 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:bg-zinc-700 dark:border-zinc-600 dark:hover:bg-zinc-600 dark:focus:bg-zinc-600 dark:focus:ring-zinc-700 dark:focus:ring-gray-500/20" data-tw-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="py-4 mb-2">
+    <%= linkTo(labsPath(), {class: "btn btn-info"}) { %>
+      Back to all Lab Requests
+    <% } %>
+    <%= if (current_user.Admin && (lab.State == "pending" || lab.State == "approved")) { %>
+        <%= linkTo(editLabPath({ lab_id: lab.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+    <% } %>
+    <%= if (current_user.Admin && lab.State == "pending") { %>
+        <a href="javascript:void(0)" class="btn btn-success" hx-post="/labs/approve/<%= lab.ID %>" hx-target="#htmx-flash" hx-include="[name='authenticity_token']">Approve</a>
+        <a href="javascript:void(0)" class="btn btn-danger" hx-post="/labs/deny/<%= lab.ID %>" hx-target="#htmx-flash" hx-include="[name='authenticity_token']">Deny</a>
+        <input name="authenticity_token" type="hidden" value="<%= authenticity_token %>">
+    <% } %>
+  <a href="javascript:void(0)" class="btn btn-info" data-tw-toggle="modal" data-tw-target="#add-note-modal">Add Note</a>
+</div>
+
+
+<div class="grid gap-6 grid-cols-12">
+
+  <div class="col-span-7">
+    <div class="card">
+      <div class="p-6">
+          <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-6">
+          <p class="mb-3 text-sm uppercase font-medium">Description</p>
+          <p class="text-gray-500 text-sm"><%= lab.Description %></p>
+            </div>
+            <div class="col-span-6">
+              <p class="mb-3 text-sm uppercase font-medium">Note</p>
+              <p class="text-gray-500 text-sm"><%= lab.Notes %></p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-12 gap-6 mt-5">
+            <div class="col-span-3">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  Company Name</p>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= lab.CompanyName %></h5>
+              </div>
+            </div>
+            <div class="col-span-3">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  OpenShift Version</p>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= stripocp(lab.OpenShiftVersion) %></h5>
+              </div>
+            </div>
+            <div class="col-span-3">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  Cluster Size</p>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= lab.ClusterSize %></h5>
+              </div>
+            </div>
+            <div class="col-span-3">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  Request Type</p>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= lab.RequestType %></h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4 gap-6 mt-5">
+            <div class="">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  Region</p>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= toupper(lab.Region) %></h5>
+              </div>
+            </div>
+            <div class="">
+              <p class="mb-3 text-sm uppercase font-medium">
+                Lease Time</p>
+              <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= lab.LeaseTime %></h5>
+            </div>
+            <div class="">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  <i class="uil-calender text-red-500 text-base"></i>
+                  Start Date</p>
+                <% let startdate = lab.StartDate.Format("January 2, 2006") %>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= startdate %></h5>
+              </div>
+            </div>
+            <div class="">
+              <p class="mb-3 text-sm uppercase font-medium">
+                <i class="uil-calendar-slash text-red-500 text-base"></i>
+                End Date</p>
+              <% let enddate = lab.EndDate.Format("January 2, 2006") %>
+              <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= enddate %></h5>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-12 gap-6 mt-5">
+            <div class="col-span-4">
+              <div class="">
+                <p class="mb-3 text-sm uppercase font-medium">
+                  <i class="uil-calender text-red-500 text-base"></i>
+                  Primary Contact</p>
+                <% let primaryName = lab.PrimaryFirst + " " + lab.PrimaryLast %>
+                <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= primaryName %><br /><%= lab.PrimaryEmail %></h5>
+              </div>
+            </div>
+            <div class="col-span-4">
+              <p class="mb-3 text-sm uppercase font-medium">
+                <i class="uil-calendar-slash text-red-500 text-base"></i>
+                Secondary Contact</p>
+              <% let secondaryName = lab.SecondaryFirst + " " + lab.SecondaryLast %>
+              <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= secondaryName %><br /><%= lab.SecondaryEmail %></h5>
+            </div>
+            <div class="col-span-4">
+              <p class="mb-3 text-sm uppercase font-medium">
+                <i class="uil-calendar-slash text-red-500 text-base"></i>
+                Sponsor</p>
+              <h5 class="text-base text-gray-700 dark:text-gray-300 font-medium"><%= lab.Sponsor %></h5>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="pl-6 mt-6">
+        <p class="mb-3 text-sm uppercase font-medium">Notes</p>
+      </div>
+      <div class="overflow-y-scroll pr-6 h-40">
+        <%= for (note) in notes { %>
+          <%= partial("partials/labnote.html", {note: note}) %>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <p class="text-sm uppercase font-medium">Cluster Logins</p>
+      </div>
+      <div class="card-body">
+        <div class="relative overflow-x-auto">
+          <table id="clusterlogins" class="w-full text-sm text-left text-gray-500 ">
+            <thead class="text-sm text-gray-700 dark:text-gray-100">
+            <tr>
+              <th scope="col" class="px-6 py-3.5">
+                Username
+              </th>
+              <th scope="col" class="px-6 py-3.5">
+                Login Type
+              </th>
+              <th scope="col" class="px-6 py-3.5">
+                Access Time
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= for (audit) in audits { %>
+            <%= partial("partials/labaudit.html", {audit: audit}) %>
+            <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-span-5">
+      <p class="text-sm uppercase font-medium mb-3">Extend</p>
+    <form hx-post="/labs/extension" hx-swap="beforeend" hx-target="#extensions">
+      <input name="authenticity_token" type="hidden" value="<%= authenticity_token %>">
+      <input name="lab_id" type="hidden" value="<%= lab.ID %>">
+      <div class="pb-6">
+        <select class="w-1/2" id="extension" name="extension">
+          <option selected value="">Select...</option>
+          <option value="1d">One Day</option>
+          <option value="1w">One Week</option>
+          <option value="2w">Two Weeks</option>
+          <option value="1m">One Month</option>
+          <option value="2m">Two Months</option>
+          <option value="3m">Three Months</option>
+          <option value="6m">Six Months</option>
+        </select>
+        <button role="submit" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+    <div class="card">
+      <div class="card-body">
+        <p class="text-sm uppercase font-medium">Extensions Log</p>
+      </div>
+      <div class="card-body">
+      <div class="relative overflow-x-auto">
+        <table id="extensions" class="w-full text-sm text-left text-gray-500 ">
+          <thead class="text-sm text-gray-700 dark:text-gray-100">
+          <tr>
+            <th scope="col" class="px-6 py-3.5">
+              User
+            </th>
+            <th scope="col" class="px-6 py-3.5">
+              Date
+            </th>
+            <th scope="col" class="px-6 py-3.5">
+              Extension
+            </th>
+          </tr>
+          </thead>
+          <tbody id="extensions-log-table-body" hx-get="/labs/extensions-log" hx-trigger="log-extension from:body">
+          <%= for (ext) in exts { %>
+              <%= partial("partials/labext.html", {extension: ext}) %>
+          <% } %>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+

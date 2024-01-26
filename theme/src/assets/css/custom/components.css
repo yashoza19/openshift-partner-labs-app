@@ -1,0 +1,23 @@
+/* .dropdown-menu{
+  @apply absolute z-50 m-0;
+}
+.dropdown-menu.dropdown-menu-right{
+  @apply absolute right-0;
+} */
+
+
+/* .dropdown:hover .dropdown-menu {
+  display: block;
+} */
+
+
+@layer components {
+  
+  .nav-border .nav-item .active {
+    @apply border border-b-white rounded border-gray-300 rounded-b-none;
+  }
+
+  .bg-color-gradient {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  }
+}
