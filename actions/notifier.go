@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"openshift-partner-labs-app/models"
 	"strconv"
+	"strings"
 )
 
 // Custom Flash Responses
@@ -204,6 +205,14 @@ func sendSlackNotification(l *models.Lab) error {
 	viewBtn := slack.NewButtonBlockElement("", "view_request", viewBtnTxt)
 	viewBtn.URL = envy.Get("HOST", "http://localhost:3000") + "/labs/" + strconv.Itoa(l.ID)
 
+	mentions := envy.Get("ADMIN_SLACK_IDS", "")
+	mentionIDs := strings.Split(mentions, ",")
+	mentionSlice := make([]*slack.TextBlockObject, 0)
+	for _, mentionID := range mentionIDs {
+		mentionSlice = append(mentionSlice, slack.NewTextBlockObject("mrkdwn", "<@"+mentionID+">", false, false))
+	}
+	mentionSection := slack.NewSectionBlock(nil, mentionSlice, nil)
+
 	// Approve and Deny Buttons
 	actionBlock := slack.NewActionBlock("", viewBtn)
 
@@ -211,6 +220,7 @@ func sendSlackNotification(l *models.Lab) error {
 		headerSection,
 		fieldsSection,
 		actionBlock,
+		mentionSection,
 	}}
 
 	whm.Blocks = &msg
