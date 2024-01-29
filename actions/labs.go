@@ -97,6 +97,17 @@ func LabDeny(c buffalo.Context) error {
 func LabExtension(c buffalo.Context) error {
 	current_user := c.Value("current_user").(*models.User)
 
+	if current_user.Admin != true {
+		return c.Render(http.StatusUnauthorized, r.Func("text/html", func(w io.Writer, d render.Data) error {
+			wsn := WebsiteNotification(c, "close-circle", "red", "You are not authorized to perform this action")
+			_, err = w.Write([]byte(wsn))
+			if err != nil {
+				return err
+			}
+			return nil
+		}))
+	}
+
 	err = w.Perform(worker.Job{
 		Queue: "default",
 		Args: worker.Args{
