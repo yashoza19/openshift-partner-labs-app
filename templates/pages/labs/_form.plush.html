@@ -75,7 +75,7 @@
             <div class="col-span-6">
                 <label for="sponsor">Sponsor</label>
                 <%= if (!current_user.Admin) { %>
-                <input disabled readonly class="block w-full" type="text" id="sponsor" name="sponsor"
+                <input readonly class="block w-full" type="text" id="sponsor" name="sponsor"
                        placeholder="<%= current_user.Email %>" value="<%= current_user.Email %>"/>
                 <% } %>
                 <%= if (current_user.Admin && !errors) { %>
