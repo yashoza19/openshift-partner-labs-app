@@ -1,5 +1,5 @@
-name = "redhat-openshift-partner-labs-app"
-bin = "bin/redhat-openshift-partner-labs-app"
+name = "openshift-partner-labs-app"
+bin = "/opt/app-root/src/app"
 vcs = "git"
 with_pop = true
 with_sqlite = false
