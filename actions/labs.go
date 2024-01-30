@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 
@@ -58,6 +59,26 @@ func CreateLabNote(c buffalo.Context) error {
 }
 
 func LabApprove(c buffalo.Context) error {
+	labID, _ := strconv.Atoi(c.Param("lab_id"))
+	lab := &models.Lab{
+		ID:    labID,
+		State: "approved",
+	}
+
+	tx := c.Value("tx").(*pop.Connection)
+
+	err = tx.UpdateColumns(lab, "state")
+	if err != nil {
+		return c.Render(http.StatusInternalServerError, r.Func("text/html", func(w io.Writer, d render.Data) error {
+			wsn := WebsiteNotification(c, "close-circle", "red", "Unable to update lab request state")
+			_, err = w.Write([]byte(wsn))
+			if err != nil {
+				return err
+			}
+			return nil
+		}))
+	}
+
 	return c.Render(http.StatusOK, r.Func("text/html", func(w io.Writer, d render.Data) error {
 		wsn := WebsiteNotification(c, "check-all", "green", "Lab Request Approved")
 		_, err = w.Write([]byte(wsn))
@@ -69,13 +90,18 @@ func LabApprove(c buffalo.Context) error {
 }
 
 func LabDeny(c buffalo.Context) error {
-	lab := &models.Lab{}
+	labID, _ := strconv.Atoi(c.Param("lab_id"))
+	lab := &models.Lab{
+		ID:    labID,
+		State: "denied",
+	}
 
 	tx := c.Value("tx").(*pop.Connection)
 
-	if err = tx.Find(lab, c.Param("lab_id")); err != nil {
-		return c.Render(http.StatusNotFound, r.Func("text/html", func(w io.Writer, d render.Data) error {
-			wsn := WebsiteNotification(c, "close-circle", "red", "Lab Request Not Found")
+	err = tx.UpdateColumns(lab, "state")
+	if err != nil {
+		return c.Render(http.StatusInternalServerError, r.Func("text/html", func(w io.Writer, d render.Data) error {
+			wsn := WebsiteNotification(c, "close-circle", "red", "Unable to update lab request state")
 			_, err = w.Write([]byte(wsn))
 			if err != nil {
 				return err
