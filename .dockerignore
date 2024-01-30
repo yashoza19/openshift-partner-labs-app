@@ -14,3 +14,5 @@ theme
 tmp
 .env
 theme.tar.gz
+
+deployment.yml

@@ -17,7 +17,7 @@ RUN go mod download
 ADD . .
 RUN go build -v -tags production -o /opt/app-root/src/app ./cmd/app
 
-FROM registry.access.redhat.com/ubi9/ubi-micro:latest
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
 WORKDIR /opt/app-root/src/
 
