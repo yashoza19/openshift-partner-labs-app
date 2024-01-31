@@ -1,0 +1,11 @@
+create_table("users") {
+	t.Column("id", "int", {primary: true})
+	t.Column("user_id", "string")
+	t.Column("first_name", "string")
+	t.Column("last_name", "string")
+	t.Column("full_name", "string")
+	t.Column("email", "varbinary", {size: 255})
+	t.Column("picture", "varbinary", {size: 255})
+	t.Column("admin", "tinyint", {size: 1})
+	t.Timestamps()
+}

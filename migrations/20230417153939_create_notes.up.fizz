@@ -1,0 +1,11 @@
+create_table("notes") {
+	t.Column("id", "int", {primary: true})
+	t.Column("lab_id", "int", {})
+	t.Column("user_id", "string", {})
+	t.Column("note", "text", {})
+	t.Timestamps()
+}
+
+add_foreign_key("notes", "lab_id", {"labs": ["id"]}, {
+    "on_delete": "cascade",
+})

@@ -1,0 +1,11 @@
+create_table("regexts") {
+	t.Column("id", "int", {primary: true})
+	t.Column("lab_id", "int")
+	t.Column("extension", "string", {size: 6})
+	t.Column("current_user", "string", {size: 255})
+	t.Column("date", "datetime")
+	t.Column("status", "string", {size: 10})
+	t.Timestamps()
+}
+
+add_foreign_key("regexts", "lab_id", {"labs", ["id"]})

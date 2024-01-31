@@ -1,0 +1,10 @@
+create_table("audits") {
+	t.Column("id", "int", {primary: true})
+	t.Column("generated_name", "string", {size: 32})
+	t.Column("access_time", "datetime")
+	t.Column("login_name", "string", {size: 255})
+	t.Column("login_type", "string", {size: 255})
+	t.Timestamps()
+}
+
+add_foreign_key("audits", "generated_name", {"labs", ["generated_name"]}, {"on_delete": "cascade"})

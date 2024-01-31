@@ -1,0 +1,11 @@
+create_table("openshift_version_mappings") {
+	t.Column("id", "int", {primary: true})
+	t.Column("name", "string", {size: 255})
+	t.Column("location", "string", {size: 255})
+	t.Column("rosa", "bool")
+	t.Column("aro", "bool")
+	t.Column("gro", "bool")
+	t.Column("roks", "bool")
+}
+
+add_index("openshift_version_mappings", "name", {unique: true})
