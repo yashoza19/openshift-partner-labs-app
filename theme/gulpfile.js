@@ -137,7 +137,7 @@ gulp.task('browsersyncReload', function (callback) {
 gulp.task('watch', function () {
     gulp.watch([paths.src.css.files, paths.src.html.files,
         paths.src.layouts.files, paths.src.pages.files, paths.src.partials.files,
-        "!" + paths.src.css.icons], gulp.series(['html', 'css']));
+        "!" + paths.src.css.icons], gulp.series(['html', 'html:layouts', 'html:partials', 'html:pages', 'css']));
     gulp.watch([paths.src.css.icons], gulp.series('icons'));
     gulp.watch([paths.src.js.dir], gulp.series('js'));
     gulp.watch([paths.src.js.pages], gulp.series('jsPages'));
