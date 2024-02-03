@@ -1,0 +1,8 @@
+create_table("cloudcosts") {
+    t.Column("id", "int", {"primary": true}),
+    t.Column("month", "int", {"size": 2}),
+    t.Column("year", "int", {"size": 4}),
+    t.Column("provider", "string", {"size": 12}),
+    t.Column("cost", "float"),
+    t.Timestamps()
+}
