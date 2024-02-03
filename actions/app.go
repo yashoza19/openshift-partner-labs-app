@@ -104,6 +104,7 @@ func App() *buffalo.App {
 		wrkflw.Middleware.Skip(Authorized, AuditWorkflow)
 		wrkflw.POST("/audit", AuditWorkflow)
 
+		app.GET("/labs/archive", LabsArchive)
 		app.Resource("/labs", LabsResource{})
 		app.POST("/labs/approve/{lab_id}", LabApprove).Name("labApprove")
 		app.POST("/labs/deny/{lab_id}", LabDeny).Name("labDeny")

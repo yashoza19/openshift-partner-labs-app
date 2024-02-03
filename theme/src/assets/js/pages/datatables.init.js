@@ -15,6 +15,15 @@ $(document).ready(function() {
         order: [[ 2, "desc" ]],
     });
 
+    $('#archive-requests-table').DataTable({
+        columns: [
+            { orderable: false },
+            { orderable: false },
+            null,
+        ],
+        order: [[ 2, "desc" ]],
+    });
+
     $('#clusterlogins').DataTable({
         columns: [
             { orderable: false },

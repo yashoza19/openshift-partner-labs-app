@@ -194,6 +194,33 @@ func (v LabsResource) List(c buffalo.Context) error {
 	}).Respond(c)
 }
 
+// LabsArchive gets all Labs that are completed. This function is mapped to the path
+// GET /labs/archive
+func LabsArchive(c buffalo.Context) error {
+	// Get the DB connection from the context
+	tx, ok := c.Value("tx").(*pop.Connection)
+	if !ok {
+		return fmt.Errorf("no transaction found")
+	}
+
+	labs := &models.Labs{}
+
+	// Retrieve all Labs from the DB
+	if err = tx.Where("state in (?)", "complete", "denied").All(labs); err != nil {
+		return err
+	}
+
+	return responder.Wants("html", func(c buffalo.Context) error {
+		// Add the paginator to the context, so it can be used in the template.
+		c.Set("labs", labs)
+		return c.Render(http.StatusOK, r.HTML("pages/labs/archive.plush.html", "layouts/layout-labs.plush.html"))
+	}).Wants("json", func(c buffalo.Context) error {
+		return c.Render(200, r.JSON(labs))
+	}).Wants("xml", func(c buffalo.Context) error {
+		return c.Render(200, r.XML(labs))
+	}).Respond(c)
+}
+
 // Show gets the data for one Lab. This function is mapped to
 // the path GET /labs/{lab_id}
 func (v LabsResource) Show(c buffalo.Context) error {
