@@ -308,6 +308,8 @@ func (v LabsResource) Create(c buffalo.Context) error {
 			// Render again the new.html template that the user can
 			// correct the input.
 			c.Set("lab", lab)
+			openShiftReleaseImages := getOpenShiftReleaseImages()
+			c.Set("releaseimages", openShiftReleaseImages)
 
 			return c.Render(http.StatusUnprocessableEntity, r.HTML("pages/labs/new.plush.html", "layouts/layout-labs.plush.html"))
 		}).Wants("json", func(c buffalo.Context) error {

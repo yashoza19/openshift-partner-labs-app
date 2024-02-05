@@ -9,12 +9,12 @@
                 <h4>Request Details</h4>
             </div>
             <div class="col-span-6">
-                <label for="project_name">Project Name</label>
+                <label for="project_name">Project Name</label><span class="required">*</span></label>
                 <input class="block w-full" type="text" id="project_name" name="project_name" required
                        placeholder="<%= lab.ProjectName %>" value="<%= lab.ProjectName %>"/>
             </div>
             <div class="col-span-6">
-                <label for="company_name">Company Name</label>
+                <label for="company_name">Company Name</label><span class="required">*</span></label>
                 <input class="block w-full" type="text" id="company_name" name="company_name" required
                        placeholder="<%= lab.CompanyName %>" value="<%= lab.CompanyName %>"/>
             </div>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="col-span-6">
-                <label for="description">Description</label>
+                <label for="description">Description</label><span class="required">*</span></label>
                 <textarea class="block w-full h-48" id="description" name="description" required
                           placeholder="<%= lab.Description %>"><%= lab.Description %></textarea>
             </div>
@@ -92,17 +92,17 @@
                 <h6>Primary Contact</h6>
             </div>
             <div class="col-span-6">
-                <label for="primary_first">First Name</label>
+                <label for="primary_first">First Name</label><span class="required">*</span></label>
                 <input class="block w-full" type="text" id="primary_first" name="primary_first" required
                        placeholder="<%= lab.PrimaryFirst %>" value="<%= lab.PrimaryFirst %>"/>
             </div>
             <div class="col-span-6">
-                <label for="primary_last">Last Name</label>
+                <label for="primary_last">Last Name</label><span class="required">*</span></label>
                 <input class="block w-full" type="text" id="primary_last" name="primary_last" required
                        placeholder="<%= lab.PrimaryLast %>" value="<%= lab.PrimaryLast %>"/>
             </div>
             <div class="col-span-6">
-                <label for="primary_email">Email</label>
+                <label for="primary_email">Email</label><span class="required">*</span></label>
                 <input class="block w-full" type="email" id="primary_email" name="primary_email" required
                        placeholder="<%= lab.PrimaryEmail %>" value="<%= lab.PrimaryEmail %>"/>
             </div>
@@ -111,17 +111,17 @@
             </div>
             <div class="col-span-6">
                 <label for="secondary_first">First Name</label>
-                <input class="block w-full" type="text" id="secondary_first" name="secondary_first" required
+                <input class="block w-full" type="text" id="secondary_first" name="secondary_first" 
                        placeholder="<%= lab.SecondaryFirst %>" value="<%= lab.SecondaryFirst %>"/>
             </div>
             <div class="col-span-6">
                 <label for="secondary_last">Last Name</label>
-                <input class="block w-full" type="text" id="secondary_last" name="secondary_last" required
+                <input class="block w-full" type="text" id="secondary_last" name="secondary_last" 
                        placeholder="<%= lab.SecondaryLast %>" value="<%= lab.SecondaryLast %>"/>
             </div>
             <div class="col-span-6">
                 <label for="secondary_email">Email</label>
-                <input class="block w-full" type="email" id="secondary_email" name="secondary_email" required
+                <input class="block w-full" type="email" id="secondary_email" name="secondary_email" 
                        placeholder="<%= lab.SecondaryEmail %>" value="<%= lab.SecondaryEmail %>"/>
             </div>
         </div>
@@ -130,7 +130,7 @@
                 <h4>Cluster Specifications</h4>
             </div>
             <div class="col-span-6">
-                <label for="cluster_name">Cluster Name</label>
+                <label for="cluster_name">Cluster Name</label><span class="required">*</span></label>
                 <input class="block w-full" type="text" id="cluster_name" name="cluster_name" required
                        placeholder="<%= lab.ClusterName %>" value="<%= lab.ClusterName %>"/>
             </div>
@@ -148,7 +148,7 @@
                 <label for="openshift_version">OpenShift Version</label>
                 <select class="block w-full" id="openshift_version" name="openshift_version">
                     <%= for (image) in releaseimages { %>
-                    <option value="<%= image.String() %>"><%= image.String() %></option>
+                    <option value="ocp-<%= image.String() %>"><%= image.String() %></option>
                     <% } %>
                 </select>
             </div>
@@ -180,7 +180,7 @@
                 </select>
             </div>
             <div class="col-span-3">
-                <label for="start_date">Start Date</label>
+                <label for="start_date">Start Date</label><span class="required">*</span></label>
                 <input class="w-full placeholder:text-sm focus:border focus:border-violet-500 focus:ring-0 dark:bg-zinc-700/50 dark:border-zinc-600 dark:text-zinc-100"
                        type="date" value="" id="start_date" name="start_date" required>
             </div>

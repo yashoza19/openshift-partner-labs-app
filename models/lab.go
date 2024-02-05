@@ -77,61 +77,21 @@ func (l *Lab) ValidateCreate(tx *pop.Connection) (*validate.Errors, error) {
 
 func (l *Lab) ValidateCreation(errors *validate.Errors) {
 	var err error
-	re := regexp.MustCompile(`[A-Z][^A-Z]*`)
 
 	l.ClusterID, err = uuid.NewV4()
 	if err != nil {
 		errors.Add("cluster_id", "Unable to generate cluster id")
 	}
 
-	labval := *l
-
-	structType := reflect.TypeOf(labval)
-	if structType.Kind() != reflect.Struct {
-		errors.Add("struct_type", "Invalid type passed to IsValid")
+	is_alphanumeric := regexp.MustCompile(`^[a-zA-Z0-9]*$`)
+	if !is_alphanumeric.MatchString(l.ClusterName) {
+		errors.Add("cluster_name", "Cluster name can only contain alphanumeric characters")
 	}
 
-	structVal := reflect.ValueOf(labval)
-	fieldNum := structVal.NumField()
-
-	for i := 0; i < fieldNum; i++ {
-		field := structVal.Field(i)
-		fieldName := structType.Field(i).Name
-
-		if fieldName == "ID" ||
-			fieldName == "GeneratedName" ||
-			fieldName == "Partner" ||
-			fieldName == "Sponsor" ||
-			fieldName == "SecondaryFirst" ||
-			fieldName == "SecondaryLast" ||
-			fieldName == "SecondaryEmail" ||
-			fieldName == "Notes" ||
-			fieldName == "EndDate" ||
-			fieldName == "State" ||
-			fieldName == "Hold" ||
-			fieldName == "AlwaysOn" ||
-			fieldName == "CreatedAt" ||
-			fieldName == "UpdatedAt" {
-			continue
-		}
-
-		isSet := field.IsValid() && !field.IsZero()
-		if !isSet {
-			submatchall := re.FindAllString(fieldName, -1)
-			formattedFieldName := ""
-			for _, v := range submatchall {
-				if v == "OpenShiftVersion" {
-					formattedFieldName += "OpenShift Version"
-				} else {
-					strings.ToLower(v)
-					formattedFieldName += v + " "
-				}
-			}
-			errors.Add(fieldName, formattedFieldName+" is required")
-		}
+	if len(l.ClusterName) > 12 || len(l.ClusterName) < 4 {
+		errors.Add("cluster_name", "Cluster name must be 4-12 characters")
 	}
 
-	l.OpenShiftVersion = "ocp-" + l.OpenShiftVersion
 	l.GeneratedName = strings.Split(l.ClusterID.String(), "-")[0] + "-" + strings.ToLower(l.ClusterName)
 	l.EndDate, err = setEndDate(l.StartDate.Format("2006-01-02"), l.LeaseTime)
 	if err != nil {
